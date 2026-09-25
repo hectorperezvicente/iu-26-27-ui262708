@@ -91,9 +91,9 @@ let accion_pruebas = [
     Array('accion', 'descrip_accion', 27, 27, 'EDIT', { descrip_accion: 'Hola' }, 'descrip_accion_min_size_ko'),
     Array('accion', 'descrip_accion', 28, 28, 'EDIT', { descrip_accion: 'a'.repeat(201) }, 'descrip_accion_max_size_ko'),
     Array('accion', 'descrip_accion', 29, 29, 'EDIT', { descrip_accion: 'Descripcion con numeros 123' }, 'descrip_accion_format_ko'),
-    Array('accion', 'descrip_accion', 30, 30, 'EDIT', { descrip_accion: 'Esta es una descripcion valida, con signos y ñ' }, true),
+    Array('accion', 'descrip_accion', 30, 30, 'EDIT', { descrip_accion: 'Esta es una descripcion valida, con signos y n!' }, true),
 
     Array('accion', 'descrip_accion', 31, 31, 'SEARCH', { descrip_accion: 'a'.repeat(201) }, 'descrip_accion_max_size_ko'),
     Array('accion', 'descrip_accion', 32, 32, 'SEARCH', { descrip_accion: 'Descripcion con numeros 123' }, 'descrip_accion_format_ko'),
-    Array('accion', 'descrip_accion', 33, 33, 'SEARCH', { descrip_accion: 'Esta es una descripcion valida, con signos y ñ' }, true)
+    Array('accion', 'descrip_accion', 33, 33, 'SEARCH', { descrip_accion: 'Esta es una descripcion valida, con signos y n!' }, true)
 ];
