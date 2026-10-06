@@ -10,7 +10,9 @@ const ENTIDADES = [
   'usuario',
   'rol',
   'accion',
-  'funcionalidad'
+  'funcionalidad',
+  'funcionalidad_accion',
+  'rolaccionfuncionalidad'
 ];
 
 console.log(`=== INICIANDO VALIDACIÓN ESTÁTICA PARA ${CODIGO_GRUPO} ===\n`);

@@ -16,6 +16,7 @@ class Validations{
 					case 'number':
 					case 'email':
 					case 'text':
+					case 'password':	// AÑADIDO: campo contrasena
 						let valorelemento = elemento.value;
 						if (valorelemento.length<minsize){
 							return false;
@@ -31,6 +32,10 @@ class Validations{
 				
 				}
 				break;
+			// ==================== AÑADIDO: textarea ====================
+			case 'TEXTAREA':
+				return (elemento.value.length >= minsize);
+			// ============================================================
 			case 'SELECT':
 				break;
 			default:
@@ -51,6 +56,7 @@ class Validations{
 					case 'number':
 					case 'email':
 					case 'text':
+					case 'password':	// AÑADIDO: campo contrasena
 						let valorelemento = elemento.value;
 						if (valorelemento.length>maxsize){
 							return false;
@@ -66,6 +72,10 @@ class Validations{
 				
 				}
 				break;
+			// ==================== AÑADIDO: textarea ====================
+			case 'TEXTAREA':
+				return (elemento.value.length <= maxsize);
+			// ============================================================
 			case 'SELECT':
 				break;
 			default:
@@ -122,5 +132,29 @@ class Validations{
 		let valor = objfile.files[0].name;
 		return expresionregular.test(valor);
 	}
+
+
+	// ==================== AÑADIDO: tamaño del nombre de fichero ====================
+
+	/**
+	@param {string} id of html file element
+	@param {number} minsize tamaño minimo del nombre del fichero
+	@return {bool}
+	*/
+	min_size_name_file(id, minsize){
+		let objfile = document.getElementById(id);
+		return (objfile.files[0].name.length >= minsize);
+	}
+
+	/**
+	@param {string} id of html file element
+	@param {number} maxsize tamaño maximo del nombre del fichero
+	@return {bool}
+	*/
+	max_size_name_file(id, maxsize){
+		let objfile = document.getElementById(id);
+		return (objfile.files[0].name.length <= maxsize);
+	}
+	// ==============================================================================
 
 }
