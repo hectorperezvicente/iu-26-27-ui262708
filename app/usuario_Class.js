@@ -130,15 +130,15 @@ class usuario extends Validations{
 	}
 
 	ADD_usuario_validation(){
-		if (!(this.min_size('usuario',3))){
+		if (!(this.min_size('usuario',5))){
 			return this.error_campo('usuario','usuario_min_size_ko');
 		}
 		if (!(this.max_size('usuario',45))){
 			return this.error_campo('usuario','usuario_max_size_ko');
 		}
-		// letras sin acentos, numeros, punto, guion y guion bajo
-		if (!(this.format('usuario','^[A-Za-z0-9._-]+$'))){
-			return this.error_campo('usuario','usuario_format_ko');
+		// solo letras sin acentos ni ñ
+		if (!(this.format('usuario','^[A-Za-z]+$'))){
+    		return this.error_campo('usuario','usuario_format_ko');
 		}
 		return this.exito_campo('usuario');
 	}
@@ -154,9 +154,8 @@ class usuario extends Validations{
 		if (!(this.max_size('contrasena',45))){
 			return this.error_campo('contrasena','contrasena_max_size_ko');
 		}
-		// cualquier caracter salvo espacios
-		if (!(this.format('contrasena','^[^\\s]+$'))){
-			return this.error_campo('contrasena','contrasena_format_ko');
+		if (!(this.format('contrasena','^[a-zA-Z]+$'))){
+    		return this.error_campo('contrasena','contrasena_format_ko');
 		}
 		return this.exito_campo('contrasena');
 	}
@@ -213,8 +212,8 @@ class usuario extends Validations{
 		if (!(this.max_size('usuario',45))){
 			return this.error_campo('usuario','usuario_max_size_ko');
 		}
-		if (!(this.format('usuario','^[A-Za-z0-9._-]*$'))){
-			return this.error_campo('usuario','usuario_format_ko');
+		if (!(this.format('usuario','^[A-Za-z]+$'))){
+    		return this.error_campo('usuario','usuario_format_ko');
 		}
 		return this.exito_campo('usuario');
 	}
@@ -223,7 +222,7 @@ class usuario extends Validations{
 		if (!(this.max_size('contrasena',45))){
 			return this.error_campo('contrasena','contrasena_max_size_ko');
 		}
-		if (!(this.format('contrasena','^[^\\s]*$'))){
+		if (!(this.format('contrasena','^[a-zA-Z]+$'))){
 			return this.error_campo('contrasena','contrasena_format_ko');
 		}
 		return this.exito_campo('contrasena');
