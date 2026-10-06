@@ -1,0 +1,18 @@
+====================================================================
+INFORMACIÓN DE TAREAS Y HORAS - ENTREGA ET1
+Asignatura: Interfaces de Usuario (Curso 2026-2027)
+Grupo: UI262708
+Alumno: Apellidos Nombre
+====================================================================
+
+--------------------------------------------------------------------
+TAREA REALIZADA                                     | HORAS DEDICADAS
+--------------------------------------------------------------------
+Análisis de especificaciones y reglas de validación | 2.5
+Diseño de tests de validación (def_tests)           | 4.0
+Diseño de batería de pruebas (pruebas)              | 4.5
+Revisión cruzada de Pull Requests en GitHub         | 1.5
+Pruebas de sintaxis e integración                   | 1.0
+--------------------------------------------------------------------
+TOTAL HORAS DEDICADAS                               | 13.5
+--------------------------------------------------------------------

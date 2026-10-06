@@ -1,4 +1,4 @@
-class funcionalidad extends Validations{
+class funcionalidad_accion extends Validations{
 
 	/**
 	 * @param {string} accion 'test' para crear la entidad sin formulario (Data_Test / Unit_Test)
@@ -7,7 +7,7 @@ class funcionalidad extends Validations{
 	constructor(accion = 'ADD'){
 		super();
 		this.dom = new dom();
-		this.nombreentidad = 'funcionalidad';
+		this.nombreentidad = 'funcionalidad_accion';
 
 		if (accion == 'test'){
 			
@@ -21,28 +21,23 @@ class funcionalidad extends Validations{
 
 	/**
 	 * crea el formulario de la entidad. Cada campo llama en onblur a la validacion
-	 * de la accion actual (this.accion) y el submit a <accion>_submit_funcionalidad
+	 * de la accion actual (this.accion) y el submit a <accion>_submit_funcionalidad_accion
 	 * @returns {string} html del formulario
 	 */
 	manual_form_creation(){
 		var form_content = `
-			<form id="form_funcionalidad" action="http://193.147.87.202/procesaform.php" method="POST" enctype="multipart/form-data" onsubmit="if (typeof entidad[entidad.accion+'_submit_funcionalidad']() === 'object') {return false} else {return true};">
+			<form id="form_funcionalidad_accion" action="http://193.147.87.202/procesaform.php" method="POST" enctype="multipart/form-data" onsubmit="if (typeof entidad[entidad.accion+'_submit_funcionalidad_accion']() === 'object') {return false} else {return true};">
 
-			<h3 id="titulo_accion_funcionalidad"></h3>
+			<h3 id="titulo_accion"></h3>
 
 			<label class="label_id_funcionalidad">Id Funcionalidad</label>
 			<input type='text' id='id_funcionalidad' name='id_funcionalidad' onblur="return entidad[entidad.accion+'_id_funcionalidad_validation']();"></input>
 			<span id="span_error_id_funcionalidad"><a id="error_id_funcionalidad"></a></span>
 			<br>
-
-			<label class="label_nombre_funcionalidad">Nombre Funcionalidad</label>
-			<input type='text' id='nombre_funcionalidad' name='nombre_funcionalidad' onblur="return entidad[entidad.accion+'_nombre_funcionalidad_validation']();"></input>
-			<span id="span_error_nombre_funcionalidad"><a id="error_nombre_funcionalidad"></a></span>
-			<br>
-
-			<label class="label_descrip_funcionalidad">Descripción Funcionalidad</label>
-			<textarea rows="5" cols="33" id='descrip_funcionalidad' name='descrip_funcionalidad' onblur="return entidad[entidad.accion+'_descrip_funcionalidad_validation']();"></textarea>
-			<span id="span_error_descrip_funcionalidad"><a id="error_descrip_funcionalidad"></a></span>
+			
+			<label class="label_id_accion">Id Acción</label>
+			<input type='text' id='id_accion' name='id_accion' onblur="return entidad[entidad.accion+'_id_accion_validation']();"></input>
+			<span id="span_error_id_accion"><a id="error_id_accion"></a></span>
 			<br>
 
 			<input id="submit_button" type="submit" value="Submit">
@@ -54,18 +49,17 @@ class funcionalidad extends Validations{
 
 	/**
 	 * adapta el formulario a la accion:
-	 *  ADD    -> sin cambios
-	 *  EDIT   -> id_funcionalidad de solo lectura (es la PK)
-	 *  SEARCH -> sin cambios
+	 *  EDIT -> id_funcionalidad e id_accion de solo lectura (forman la PK compuesta)
 	 */
 	ajustar_formulario_accion(){
-		document.getElementById('titulo_accion_funcionalidad').innerHTML = this.accion;
-		document.getElementById('form_funcionalidad').action += '?accion=' + this.accion;
+		document.getElementById('titulo_accion').innerHTML = this.accion;
+		document.getElementById('form_funcionalidad_accion').action += '?accion=' + this.accion;
 		switch (this.accion){
 			case 'ADD':
 				break;
 			case 'EDIT':
 				document.getElementById('id_funcionalidad').readOnly = true;
+				document.getElementById('id_accion').readOnly = true;
 				break;
 			case 'SEARCH':
 				break;
@@ -100,39 +94,25 @@ class funcionalidad extends Validations{
 		if (!(this.max_size('id_funcionalidad',11))){
 			return this.error_campo('id_funcionalidad','id_funcionalidad_max_size_ko');
 		}
-		// solo numeros
+		// solo digitos
 		if (!(this.format('id_funcionalidad','^[0-9]+$'))){
 			return this.error_campo('id_funcionalidad','id_funcionalidad_format_ko');
 		}
 		return this.exito_campo('id_funcionalidad');
 	}
 
-	ADD_nombre_funcionalidad_validation(){
-		if (!(this.min_size('nombre_funcionalidad',5))){
-			return this.error_campo('nombre_funcionalidad','nombre_funcionalidad_min_size_ko');
+	ADD_id_accion_validation(){
+		if (!(this.min_size('id_accion',1))){
+			return this.error_campo('id_accion','id_accion_min_size_ko');
 		}
-		if (!(this.max_size('nombre_funcionalidad',48))){
-			return this.error_campo('nombre_funcionalidad','nombre_funcionalidad_max_size_ko');
+		if (!(this.max_size('id_accion',11))){
+			return this.error_campo('id_accion','id_accion_max_size_ko');
 		}
-		// solo letras, incluida la ñ
-		if (!(this.format('nombre_funcionalidad','^[A-Za-z\u00F1\u00D1]+$'))){
-			return this.error_campo('nombre_funcionalidad','nombre_funcionalidad_format_ko');
+		// solo digitos
+		if (!(this.format('id_accion','^[0-9]+$'))){
+			return this.error_campo('id_accion','id_accion_format_ko');
 		}
-		return this.exito_campo('nombre_funcionalidad');
-	}
-
-	ADD_descrip_funcionalidad_validation(){
-		if (!(this.min_size('descrip_funcionalidad',5))){
-			return this.error_campo('descrip_funcionalidad','descrip_funcionalidad_min_size_ko');
-		}
-		if (!(this.max_size('descrip_funcionalidad',200))){
-			return this.error_campo('descrip_funcionalidad','descrip_funcionalidad_max_size_ko');
-		}
-		// letras con ñ, espacio y signos de puntuacion (. , ; : ! ? ¡ ¿ ( ) " ' -)
-		if (!(this.format('descrip_funcionalidad','^[A-Za-z\u00F1\u00D1 .,;:!?\u00A1\u00BF()"\'-]+$'))){
-			return this.error_campo('descrip_funcionalidad','descrip_funcionalidad_format_ko');
-		}
-		return this.exito_campo('descrip_funcionalidad');
+		return this.exito_campo('id_accion');
 	}
 
 	/**********************************************************************************************
@@ -143,12 +123,8 @@ class funcionalidad extends Validations{
 		return this.ADD_id_funcionalidad_validation();
 	}
 
-	EDIT_nombre_funcionalidad_validation(){
-		return this.ADD_nombre_funcionalidad_validation();
-	}
-
-	EDIT_descrip_funcionalidad_validation(){
-		return this.ADD_descrip_funcionalidad_validation();
+	EDIT_id_accion_validation(){
+		return this.ADD_id_accion_validation();
 	}
 
 	/**********************************************************************************************
@@ -165,24 +141,14 @@ class funcionalidad extends Validations{
 		return this.exito_campo('id_funcionalidad');
 	}
 
-	SEARCH_nombre_funcionalidad_validation(){
-		if (!(this.max_size('nombre_funcionalidad',48))){
-			return this.error_campo('nombre_funcionalidad','nombre_funcionalidad_max_size_ko');
+	SEARCH_id_accion_validation(){
+		if (!(this.max_size('id_accion',11))){
+			return this.error_campo('id_accion','id_accion_max_size_ko');
 		}
-		if (!(this.format('nombre_funcionalidad','^[A-Za-z\u00F1\u00D1]*$'))){
-			return this.error_campo('nombre_funcionalidad','nombre_funcionalidad_format_ko');
+		if (!(this.format('id_accion','^[0-9]*$'))){
+			return this.error_campo('id_accion','id_accion_format_ko');
 		}
-		return this.exito_campo('nombre_funcionalidad');
-	}
-
-	SEARCH_descrip_funcionalidad_validation(){
-		if (!(this.max_size('descrip_funcionalidad',200))){
-			return this.error_campo('descrip_funcionalidad','descrip_funcionalidad_max_size_ko');
-		}
-		if (!(this.format('descrip_funcionalidad','^[A-Za-z\u00F1\u00D1 .,;:!?\u00A1\u00BF()"\'-]*$'))){
-			return this.error_campo('descrip_funcionalidad','descrip_funcionalidad_format_ko');
-		}
-		return this.exito_campo('descrip_funcionalidad');
+		return this.exito_campo('id_accion');
 	}
 
 	/**********************************************************************************************
@@ -196,7 +162,7 @@ class funcionalidad extends Validations{
 	 * @param {string} accion ADD / EDIT / SEARCH
 	 */
 	submit_accion(accion){
-		var campos = ['id_funcionalidad','nombre_funcionalidad','descrip_funcionalidad'];
+		var campos = ['id_funcionalidad','id_accion'];
 		var set_result = {};
 		var result = true;
 
@@ -215,15 +181,15 @@ class funcionalidad extends Validations{
 		}
 	}
 
-	ADD_submit_funcionalidad(){
+	ADD_submit_funcionalidad_accion(){
 		return this.submit_accion('ADD');
 	}
 
-	EDIT_submit_funcionalidad(){
+	EDIT_submit_funcionalidad_accion(){
 		return this.submit_accion('EDIT');
 	}
 
-	SEARCH_submit_funcionalidad(){
+	SEARCH_submit_funcionalidad_accion(){
 		return this.submit_accion('SEARCH');
 	}
 
