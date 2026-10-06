@@ -1,4 +1,4 @@
-let funcionalidad_accion_rol_def_tests = [
+let rolaccionfuncionalidad_def_tests = [
 
     // --- id_funcionalidad ---
     Array('rolaccionfuncionalidad', 'id_funcionalidad', 'input', 1, 'cumple tamaño minimo', 'min_size', 'ADD', 'id_funcionalidad_min_size_ko', 'El id de funcionalidad es demasiado corto. Introduzca al menos 1 numeros'),
@@ -47,7 +47,7 @@ let funcionalidad_accion_rol_def_tests = [
 
 ];
 
-let funcionalidad_accion_rol_pruebas = [
+let rolaccionfuncionalidad_pruebas = [
 
     // --- id_funcionalidad ---
     Array('rolaccionfuncionalidad', 'id_funcionalidad', 1, 1, 'ADD', { id_funcionalidad: '' }, 'id_funcionalidad_min_size_ko'),
