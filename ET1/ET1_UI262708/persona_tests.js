@@ -266,7 +266,7 @@ let persona_pruebas = Array(
 	// ============================================================
 
 	// ---------- ADD ----------
-	Array('persona', 'fechaNacimiento_persona', 36, 36, 'ADD', {fechaNacimiento_persona:'1/1/2000'}, 'fechaNacimiento_persona_min_size_ko'),
+	Array('persona', 'fechaNacimiento_persona', 36, 36, 'ADD', {fechaNacimiento_persona:'1/1/200'}, 'fechaNacimiento_persona_min_size_ko'),
 	Array('persona', 'fechaNacimiento_persona', 37, 37, 'ADD', {fechaNacimiento_persona:'01/01/20000'}, 'fechaNacimiento_persona_max_size_ko'),
 	Array('persona', 'fechaNacimiento_persona', 38, 38, 'ADD', {fechaNacimiento_persona:'01-01-2000'}, 'fechaNacimiento_persona_format_ko'),
 	Array('persona', 'fechaNacimiento_persona', 39, 39, 'ADD', {fechaNacimiento_persona:'31/02/2000'}, 'fechaNacimiento_persona_personalized_ko'),
