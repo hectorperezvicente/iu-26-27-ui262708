@@ -266,7 +266,7 @@ let persona_pruebas = Array(
 	// ============================================================
 
 	// ---------- ADD ----------
-	Array('persona', 'fechaNacimiento_persona', 36, 36, 'ADD', {fechaNacimiento_persona:'1/1/2000'}, 'fechaNacimiento_persona_min_size_ko'),
+	Array('persona', 'fechaNacimiento_persona', 36, 36, 'ADD', {fechaNacimiento_persona:'1/1/200'}, 'fechaNacimiento_persona_min_size_ko'),
 	Array('persona', 'fechaNacimiento_persona', 37, 37, 'ADD', {fechaNacimiento_persona:'01/01/20000'}, 'fechaNacimiento_persona_max_size_ko'),
 	Array('persona', 'fechaNacimiento_persona', 38, 38, 'ADD', {fechaNacimiento_persona:'01-01-2000'}, 'fechaNacimiento_persona_format_ko'),
 	Array('persona', 'fechaNacimiento_persona', 39, 39, 'ADD', {fechaNacimiento_persona:'31/02/2000'}, 'fechaNacimiento_persona_personalized_ko'),
@@ -274,7 +274,7 @@ let persona_pruebas = Array(
 	Array('persona', 'fechaNacimiento_persona', 41, 41, 'ADD', {fechaNacimiento_persona:'15/08/1990'}, true),
 
 	// ---------- EDIT ----------
-	Array('persona', 'fechaNacimiento_persona', 42, 42, 'EDIT', {fechaNacimiento_persona:'1/1/2000'}, 'fechaNacimiento_persona_min_size_ko'),
+	Array('persona', 'fechaNacimiento_persona', 42, 42, 'EDIT', {fechaNacimiento_persona:'1/1/200'}, 'fechaNacimiento_persona_min_size_ko'),
 	Array('persona', 'fechaNacimiento_persona', 43, 43, 'EDIT', {fechaNacimiento_persona:'01/01/20000'}, 'fechaNacimiento_persona_max_size_ko'),
 	Array('persona', 'fechaNacimiento_persona', 44, 44, 'EDIT', {fechaNacimiento_persona:'01-01-2000'}, 'fechaNacimiento_persona_format_ko'),
 	Array('persona', 'fechaNacimiento_persona', 45, 45, 'EDIT', {fechaNacimiento_persona:'31/02/2000'}, 'fechaNacimiento_persona_personalized_ko'),
