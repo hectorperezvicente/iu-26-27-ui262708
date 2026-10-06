@@ -212,7 +212,8 @@ class usuario extends Validations{
 		if (!(this.max_size('usuario',45))){
 			return this.error_campo('usuario','usuario_max_size_ko');
 		}
-		if (!(this.format('usuario','^[A-Za-z]+$'))){
+		// en busqueda se permite vacio (* en lugar de +)
+		if (!(this.format('usuario','^[A-Za-z]*$'))){
     		return this.error_campo('usuario','usuario_format_ko');
 		}
 		return this.exito_campo('usuario');
@@ -222,7 +223,8 @@ class usuario extends Validations{
 		if (!(this.max_size('contrasena',45))){
 			return this.error_campo('contrasena','contrasena_max_size_ko');
 		}
-		if (!(this.format('contrasena','^[a-zA-Z]+$'))){
+		// en busqueda se permite vacio (* en lugar de +)
+		if (!(this.format('contrasena','^[a-zA-Z]*$'))){
 			return this.error_campo('contrasena','contrasena_format_ko');
 		}
 		return this.exito_campo('contrasena');

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="./Base/css/IU.css" media="screen" />
+	<!-- clases generales -->
+	<script type="text/javascript" src="./core/Validations_Class.js"></script>
+	<!-- clases dom -->
+	<script type="text/javascript" src="./core/Dom_table_Class.js"></script>
+	<script type="text/javascript" src="./core/Dom_Class.js"></script>
+	<!-- clases entidades -->
+	<script type="text/javascript" src="./app/persona_Class.js"></script>
+	<script type="text/javascript" src="./app/usuario_Class.js"></script>
+	<script type="text/javascript" src="./app/rol_Class.js"></script>
+	<script type="text/javascript" src="./app/accion_Class.js"></script>
+	<script type="text/javascript" src="./app/funcionalidad_Class.js"></script>
+	<script type="text/javascript" src="./app/funcionalidad_accion_Class.js"></script>
+	<script type="text/javascript" src="./app/rolaccionfuncionalidad_Class.js"></script>
+</head>
+
+<body>
+
+	<header id='header_page' class='bordeado'>GESTION DE ENTIDADES - UI262708</header>
+	<nav class='bordeado'><span onclick="menu_work();">Opciones de ménu</span>
+		<!-- iconos de acceso a los tests (se abren en otra pestaña) -->
+		<a id="icono_test_unidad" href="./Test/Unit/index.html" target="_blank" title="Test de unidad">
+			<img src="./iconos/TEST_UNIDAD.svg" width="32" height="32" alt="Test de unidad" />
+		</a>
+		<a id="icono_test_datos" href="./Test/Data/index.html" target="_blank" title="Test de datos">
+			<img src="./iconos/TEST_DATOS.svg" width="32" height="32" alt="Test de datos" />
+		</a>
+	</nav>
+	<aside id='div-menu'>
+		<ol>
+			<li class="opcionmenu">Persona
+				<span onclick="entidad = new persona('ADD');">[Añadir]</span>
+				<span onclick="entidad = new persona('EDIT');">[Editar]</span>
+				<span onclick="entidad = new persona('SEARCH');">[Buscar]</span>
+			</li>
+			<li class="opcionmenu">Usuario
+				<span onclick="entidad = new usuario('ADD');">[Añadir]</span>
+				<span onclick="entidad = new usuario('EDIT');">[Editar]</span>
+				<span onclick="entidad = new usuario('SEARCH');">[Buscar]</span>
+			</li>
+			<li class="opcionmenu">Rol
+				<span onclick="entidad = new rol('ADD');">[Añadir]</span>
+				<span onclick="entidad = new rol('EDIT');">[Editar]</span>
+				<span onclick="entidad = new rol('SEARCH');">[Buscar]</span>
+			</li>
+			<li class="opcionmenu">Acción
+				<span onclick="entidad = new accion('ADD');">[Añadir]</span>
+				<span onclick="entidad = new accion('EDIT');">[Editar]</span>
+				<span onclick="entidad = new accion('SEARCH');">[Buscar]</span>
+			</li>
+			<li class="opcionmenu">Funcionalidad
+				<span onclick="entidad = new funcionalidad('ADD');">[Añadir]</span>
+				<span onclick="entidad = new funcionalidad('EDIT');">[Editar]</span>
+				<span onclick="entidad = new funcionalidad('SEARCH');">[Buscar]</span>
+			</li>
+			<li class="opcionmenu">Funcionalidad - Acción
+				<span onclick="entidad = new funcionalidad_accion('ADD');">[Añadir]</span>
+				<span onclick="entidad = new funcionalidad_accion('EDIT');">[Editar]</span>
+				<span onclick="entidad = new funcionalidad_accion('SEARCH');">[Buscar]</span>
+			</li>
+			<li class="opcionmenu">Rol - Acción - Funcionalidad
+				<span onclick="entidad = new rolaccionfuncionalidad('ADD');">[Añadir]</span>
+				<span onclick="entidad = new rolaccionfuncionalidad('EDIT');">[Editar]</span>
+				<span onclick="entidad = new rolaccionfuncionalidad('SEARCH');">[Buscar]</span>
+			</li>
+		</ol>
+	</aside>
+	<section id="IU_form" class='bordeado'>
+
+	</section>
+
+	<article class='bordeado'>Sección article</article>
+
+	<footer class='bordeado'>Pie de página</footer>
+
+	<script type="text/javascript">
+		document.getElementById('div-menu').style.display = 'none';
+		document.getElementById('IU_form').style.display = 'none';
+		function menu_work(){
+			if (document.getElementById('div-menu').style.display == 'none'){
+				document.getElementById('div-menu').style.display = 'block';
+			}
+			else{
+				document.getElementById('div-menu').style.display = 'none';
+			}
+		}
+	</script>
+
+</body>
+
+
+</html>
