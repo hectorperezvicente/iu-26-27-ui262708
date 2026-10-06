@@ -177,7 +177,7 @@ let persona_def_tests = Array(
 	// ============================================================
 
 	// ---------- ADD ----------
-	Array('persona', 'nuevo_foto_persona', 'file', 85, 'existe fichero', 'exist_file', 'ADD', 'nuevo_foto_persona_not_exist_file_ko', 'No se ha seleccionado foto. Debe subir una foto jpg o jpeg'),
+	Array('persona', 'nuevo_foto_persona', 'file', 85, 'existe fichero', 'exist_file', 'ADD', 'nuevo_foto_persona_exist_file_ko', 'No se ha seleccionado foto. Debe subir una foto jpg o jpeg'),
 	Array('persona', 'nuevo_foto_persona', 'file', 86, 'cumple tamaño minimo nombre fichero', 'min_size_name_file', 'ADD', 'nuevo_foto_persona_min_size_name_file_ko', 'Nombre de foto demasiado corto. Debe tener entre 3 y 15 caracteres'),
 	Array('persona', 'nuevo_foto_persona', 'file', 87, 'cumple tamaño maximo nombre fichero', 'max_size_name_file', 'ADD', 'nuevo_foto_persona_max_size_name_file_ko', 'Nombre de foto demasiado largo. Debe tener entre 3 y 15 caracteres'),
 	Array('persona', 'nuevo_foto_persona', 'file', 88, 'cumple formato nombre fichero', 'format_name_file', 'ADD', 'nuevo_foto_persona_format_name_file_ko', 'Nombre de foto incorrecto. Solo letras sin acentos y puntos, con extension .jpg o .jpeg'),
@@ -274,7 +274,7 @@ let persona_pruebas = Array(
 	Array('persona', 'fechaNacimiento_persona', 41, 41, 'ADD', {fechaNacimiento_persona:'15/08/1990'}, true),
 
 	// ---------- EDIT ----------
-	Array('persona', 'fechaNacimiento_persona', 42, 42, 'EDIT', {fechaNacimiento_persona:'1/1/2000'}, 'fechaNacimiento_persona_min_size_ko'),
+	Array('persona', 'fechaNacimiento_persona', 42, 42, 'EDIT', {fechaNacimiento_persona:'1/1/200'}, 'fechaNacimiento_persona_min_size_ko'),
 	Array('persona', 'fechaNacimiento_persona', 43, 43, 'EDIT', {fechaNacimiento_persona:'01/01/20000'}, 'fechaNacimiento_persona_max_size_ko'),
 	Array('persona', 'fechaNacimiento_persona', 44, 44, 'EDIT', {fechaNacimiento_persona:'01-01-2000'}, 'fechaNacimiento_persona_format_ko'),
 	Array('persona', 'fechaNacimiento_persona', 45, 45, 'EDIT', {fechaNacimiento_persona:'31/02/2000'}, 'fechaNacimiento_persona_personalized_ko'),
@@ -361,7 +361,7 @@ let persona_pruebas = Array(
 	// ============================================================
 
 	// ---------- ADD ----------
-	Array('persona', 'nuevo_foto_persona', 85, 85, 'ADD', {}, 'nuevo_foto_persona_not_exist_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 85, 85, 'ADD', {}, 'nuevo_foto_persona_exist_file_ko'),
 	Array('persona', 'nuevo_foto_persona', 86, 86, 'ADD', {nuevo_foto_persona:{format_name_file:'ab',type_file:'image/jpeg',max_size_file:200}}, 'nuevo_foto_persona_min_size_name_file_ko'),
 	Array('persona', 'nuevo_foto_persona', 87, 87, 'ADD', {nuevo_foto_persona:{format_name_file:'fotodemasiadolarga.jpg',type_file:'image/jpeg',max_size_file:200}}, 'nuevo_foto_persona_max_size_name_file_ko'),
 	Array('persona', 'nuevo_foto_persona', 88, 88, 'ADD', {nuevo_foto_persona:{format_name_file:'nombrejpg00.jpg',type_file:'image/jpeg',max_size_file:200}}, 'nuevo_foto_persona_format_name_file_ko'),
