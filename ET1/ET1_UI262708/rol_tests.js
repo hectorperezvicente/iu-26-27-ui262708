@@ -69,16 +69,16 @@ let rol_pruebas = [
     /* ==================== ROL_NAME ==================== */
 
     Array('rol','rol_name',12,12,'ADD',{ rol_name: 'hola' },'rol_name_min_size_ko'),
-    Array('rol','rol_name',13,13,'ADD',{ rol_name: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' },'rol_name_max_size_ko'),
+    Array('rol','rol_name',13,13,'ADD',{ rol_name: 'a'.repeat(49) },'rol_name_max_size_ko'),
     Array('rol','rol_name',14,14,'ADD',{ rol_name: 'Admin123' },'rol_name_format_ko'),
     Array('rol','rol_name',15,15,'ADD',{ rol_name: 'Administrador' },true),
 
     Array('rol','rol_name',16,16,'EDIT',{ rol_name: 'hola' },'rol_name_min_size_ko'),
-    Array('rol','rol_name',17,17,'EDIT',{ rol_name: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' },'rol_name_max_size_ko'),
+    Array('rol','rol_name',17,17,'EDIT',{ rol_name: 'a'.repeat(49) },'rol_name_max_size_ko'),
     Array('rol','rol_name',18,18,'EDIT',{ rol_name: 'Admin123' },'rol_name_format_ko'),
     Array('rol','rol_name',19,19,'EDIT',{ rol_name: 'Administrador' },true),
 
-    Array('rol','rol_name',20,20,'SEARCH',{ rol_name: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' },'rol_name_max_size_ko'),
+    Array('rol','rol_name',20,20,'SEARCH',{ rol_name: 'a'.repeat(49) },'rol_name_max_size_ko'),
     Array('rol','rol_name',21,21,'SEARCH',{ rol_name: 'Admin123' },'rol_name_format_ko'),
     Array('rol','rol_name',22,22,'SEARCH',{ rol_name: 'Administrador' },true),
 
@@ -87,14 +87,14 @@ let rol_pruebas = [
     Array('rol','rol_description',23,23,'ADD',{ rol_description: 'hola' },'rol_description_min_size_ko'),
     Array('rol','rol_description',24,24,'ADD',{ rol_description: 'a'.repeat(201) },'rol_description_max_size_ko'),
     Array('rol','rol_description',25,25,'ADD',{ rol_description: 'Descripcion con version 1.0' },'rol_description_format_ko'),
-    Array('rol','rol_description',26,26,'ADD',{ rol_description: 'Esta es una descripcion valida, con n y signos.' },true),
+    Array('rol','rol_description',26,26,'ADD',{ rol_description: 'Esta es una descripcion valida, con ñ y signos.' },true),
 
     Array('rol','rol_description',27,27,'EDIT',{ rol_description: 'hola' },'rol_description_min_size_ko'),
     Array('rol','rol_description',28,28,'EDIT',{ rol_description: 'a'.repeat(201) },'rol_description_max_size_ko'),
     Array('rol','rol_description',29,29,'EDIT',{ rol_description: 'Descripcion con version 1.0' },'rol_description_format_ko'),
-    Array('rol','rol_description',30,30,'EDIT',{ rol_description: 'Esta es una descripcion valida, con n y signos.' },true),
+    Array('rol','rol_description',30,30,'EDIT',{ rol_description: 'Esta es una descripcion valida, con ñ y signos.' },true),
 
     Array('rol','rol_description',31,31,'SEARCH',{ rol_description: 'a'.repeat(201) },'rol_description_max_size_ko'),
     Array('rol','rol_description',32,32,'SEARCH',{ rol_description: 'Descripcion con version 1.0' },'rol_description_format_ko'),
-    Array('rol','rol_description',33,33,'SEARCH',{ rol_description: 'Esta es una descripcion valida, con n y signos.' },true)
+    Array('rol','rol_description',33,33,'SEARCH',{ rol_description: 'Esta es una descripcion valida, con ñ y signos.' },true)
 ];

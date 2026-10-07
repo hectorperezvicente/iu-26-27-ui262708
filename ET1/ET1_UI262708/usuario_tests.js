@@ -52,19 +52,20 @@ let usuario_def_tests = [
     Array('usuario','contrasena','input',35,'valor correcto','valid','SEARCH',true,'La contrasena es correcta.'),
 
 
-    Array('usuario','id_rol','input',36,'cumple tamaño minimo','min_size','ADD','id_rol_min_size_ko','El id de rol es demasiado corto. Introduzca al menos 1 numero'),
-    Array('usuario','id_rol','input',37,'cumple tamaño maximo','max_size','ADD','id_rol_max_size_ko','El id de rol es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('usuario','id_rol','input',38,'cumple formato','format','ADD','id_rol_format_ko','El id de rol tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('usuario','id_rol','input',39,'valor correcto','valid','ADD',true,'El id de rol es correcto.'),
+    // 'select' por ser clave ajena
+    Array('usuario','id_rol','select',36,'cumple tamaño minimo','min_size','ADD','id_rol_min_size_ko','El id de rol es demasiado corto. Introduzca al menos 1 numero'),
+    Array('usuario','id_rol','select',37,'cumple tamaño maximo','max_size','ADD','id_rol_max_size_ko','El id de rol es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('usuario','id_rol','select',38,'cumple formato','format','ADD','id_rol_format_ko','El id de rol tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('usuario','id_rol','select',39,'valor correcto','valid','ADD',true,'El id de rol es correcto.'),
 
-    Array('usuario','id_rol','input',40,'cumple tamaño minimo','min_size','EDIT','id_rol_min_size_ko','El id de rol es demasiado corto. Introduzca al menos 1 numero'),
-    Array('usuario','id_rol','input',41,'cumple tamaño maximo','max_size','EDIT','id_rol_max_size_ko','El id de rol es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('usuario','id_rol','input',42,'cumple formato','format','EDIT','id_rol_format_ko','El id de rol tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('usuario','id_rol','input',43,'valor correcto','valid','EDIT',true,'El id de rol es correcto.'),
+    Array('usuario','id_rol','select',40,'cumple tamaño minimo','min_size','EDIT','id_rol_min_size_ko','El id de rol es demasiado corto. Introduzca al menos 1 numero'),
+    Array('usuario','id_rol','select',41,'cumple tamaño maximo','max_size','EDIT','id_rol_max_size_ko','El id de rol es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('usuario','id_rol','select',42,'cumple formato','format','EDIT','id_rol_format_ko','El id de rol tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('usuario','id_rol','select',43,'valor correcto','valid','EDIT',true,'El id de rol es correcto.'),
 
-    Array('usuario','id_rol','input',44,'cumple tamaño maximo','max_size','SEARCH','id_rol_max_size_ko','El id de rol es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('usuario','id_rol','input',45,'cumple formato','format','SEARCH','id_rol_format_ko','El id de rol tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('usuario','id_rol','input',46,'valor correcto','valid','SEARCH',true,'El id de rol es correcto.'),
+    Array('usuario','id_rol','select',44,'cumple tamaño maximo','max_size','SEARCH','id_rol_max_size_ko','El id de rol es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('usuario','id_rol','select',45,'cumple formato','format','SEARCH','id_rol_format_ko','El id de rol tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('usuario','id_rol','select',46,'valor correcto','valid','SEARCH',true,'El id de rol es correcto.'),
 
 ];
 

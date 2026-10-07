@@ -99,6 +99,16 @@ class dom extends dom_table {
 					this.colocarelemento(element, 'form');
 				}
 				break;
+			// ==================== AÑADIDO: select ====================
+            case 'select':
+                for (var clave in valores){
+                    var element = document.createElement('select');
+                    element.id = clave;
+                    element.name = clave;
+                    this.fillElementValue(element, valores[clave]);
+                    this.colocarelemento(element, 'form');
+                }
+                break;
 			// ============================================================
 			case 'file':
 				element = this.createInput(nombrecampo, tipo);
