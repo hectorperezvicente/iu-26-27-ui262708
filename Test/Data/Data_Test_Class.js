@@ -121,7 +121,7 @@ class Data_Test {
             this.dom.crearElementoHtml('a', '', 'error_'+def[1], {});
             this.dom.crearElementoHtml('input', 'submit', 'submit_button', {submit_button:0});
 
-            
+            console.log(def[1], document.getElementById(def[1]).value, document.getElementById(def[1]).tagName);
             //llamo a la funcion de validacion del campo según su accion
             var resultadoprueba = eval('this.entidad.'+resultadopruebas.accion+'_'+resultadopruebas.campo+'_validation()');
             resultadopruebas.resultadoprueba = resultadoprueba;
