@@ -1,34 +1,34 @@
 let funcionalidad_accion_def_tests = [
 
-    // --- id_funcionalidad ---
-    Array('funcionalidad_accion', 'id_funcionalidad', 'input', 1, 'cumple tamaño minimo', 'min_size', 'ADD', 'id_funcionalidad_min_size_ko', 'El id de funcionalidad es demasiado corto. Introduzca al menos 1 numeros'),
-    Array('funcionalidad_accion', 'id_funcionalidad', 'input', 2, 'cumple tamaño maximo', 'max_size', 'ADD', 'id_funcionalidad_max_size_ko', 'El id de funcionalidad es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('funcionalidad_accion', 'id_funcionalidad', 'input', 3, 'cumple formato', 'format', 'ADD', 'id_funcionalidad_format_ko', 'El id de funcionalidad tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('funcionalidad_accion', 'id_funcionalidad', 'input', 4, 'valor correcto', 'valid', 'ADD', true, 'El id de funcionalidad es correcto.'),   
+    // --- id_funcionalidad (Cambiado a 'select' por ser clave ajena) ---
+    Array('funcionalidad_accion', 'id_funcionalidad', 'select', 1, 'cumple tamaño minimo', 'min_size', 'ADD', 'id_funcionalidad_min_size_ko', 'El id de funcionalidad es demasiado corto. Introduzca al menos 1 numero'),
+    Array('funcionalidad_accion', 'id_funcionalidad', 'select', 2, 'cumple tamaño maximo', 'max_size', 'ADD', 'id_funcionalidad_max_size_ko', 'El id de funcionalidad es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('funcionalidad_accion', 'id_funcionalidad', 'select', 3, 'cumple formato', 'format', 'ADD', 'id_funcionalidad_format_ko', 'El id de funcionalidad tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('funcionalidad_accion', 'id_funcionalidad', 'select', 4, 'valor correcto', 'valid', 'ADD', true, 'El id de funcionalidad es correcto.'),   
     
-    Array('funcionalidad_accion', 'id_funcionalidad', 'input', 5, 'cumple tamaño minimo', 'min_size', 'EDIT', 'id_funcionalidad_min_size_ko', 'El id de funcionalidad es demasiado corto. Introduzca al menos 1 numeros'),
-    Array('funcionalidad_accion', 'id_funcionalidad', 'input', 6, 'cumple tamaño maximo', 'max_size', 'EDIT', 'id_funcionalidad_max_size_ko', 'El id de funcionalidad es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('funcionalidad_accion', 'id_funcionalidad', 'input', 7, 'cumple formato', 'format', 'EDIT', 'id_funcionalidad_format_ko', 'El id de funcionalidad tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('funcionalidad_accion', 'id_funcionalidad', 'input', 8, 'valor correcto', 'valid', 'EDIT', true, 'El id de funcionalidad es correcto.'),
+    Array('funcionalidad_accion', 'id_funcionalidad', 'select', 5, 'cumple tamaño minimo', 'min_size', 'EDIT', 'id_funcionalidad_min_size_ko', 'El id de funcionalidad es demasiado corto. Introduzca al menos 1 numero'),
+    Array('funcionalidad_accion', 'id_funcionalidad', 'select', 6, 'cumple tamaño maximo', 'max_size', 'EDIT', 'id_funcionalidad_max_size_ko', 'El id de funcionalidad es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('funcionalidad_accion', 'id_funcionalidad', 'select', 7, 'cumple formato', 'format', 'EDIT', 'id_funcionalidad_format_ko', 'El id de funcionalidad tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('funcionalidad_accion', 'id_funcionalidad', 'select', 8, 'valor correcto', 'valid', 'EDIT', true, 'El id de funcionalidad es correcto.'),
 
-    Array('funcionalidad_accion', 'id_funcionalidad', 'input', 9, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'id_funcionalidad_max_size_ko', 'El id de funcionalidad es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('funcionalidad_accion', 'id_funcionalidad', 'input', 10, 'cumple formato', 'format', 'SEARCH', 'id_funcionalidad_format_ko', 'El id de funcionalidad tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('funcionalidad_accion', 'id_funcionalidad', 'input', 11, 'valor correcto', 'valid', 'SEARCH', true, 'El id de funcionalidad es correcto.'),
+    Array('funcionalidad_accion', 'id_funcionalidad', 'select', 9, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'id_funcionalidad_max_size_ko', 'El id de funcionalidad es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('funcionalidad_accion', 'id_funcionalidad', 'select', 10, 'cumple formato', 'format', 'SEARCH', 'id_funcionalidad_format_ko', 'El id de funcionalidad tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('funcionalidad_accion', 'id_funcionalidad', 'select', 11, 'valor correcto', 'valid', 'SEARCH', true, 'El id de funcionalidad es correcto.'),
 
-    // --- id_accion ---
-    Array('funcionalidad_accion', 'id_accion', 'input', 12, 'cumple tamaño minimo', 'min_size', 'ADD', 'id_accion_min_size_ko', 'El id de accion es demasiado corto. Introduzca al menos 1 numero'),
-    Array('funcionalidad_accion', 'id_accion', 'input', 13, 'cumple tamaño maximo', 'max_size', 'ADD', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('funcionalidad_accion', 'id_accion', 'input', 14, 'cumple formato', 'format', 'ADD', 'id_accion_format_ko', 'El id de accion tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('funcionalidad_accion', 'id_accion', 'input', 15, 'valor correcto', 'valid', 'ADD', true, 'El id de accion es correcto.'),
+    // --- id_accion (Cambiado a 'select' por ser clave ajena) ---
+    Array('funcionalidad_accion', 'id_accion', 'select', 12, 'cumple tamaño minimo', 'min_size', 'ADD', 'id_accion_min_size_ko', 'El id de accion es demasiado corto. Introduzca al menos 1 numero'),
+    Array('funcionalidad_accion', 'id_accion', 'select', 13, 'cumple tamaño maximo', 'max_size', 'ADD', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('funcionalidad_accion', 'id_accion', 'select', 14, 'cumple formato', 'format', 'ADD', 'id_accion_format_ko', 'El id de accion tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('funcionalidad_accion', 'id_accion', 'select', 15, 'valor correcto', 'valid', 'ADD', true, 'El id de accion es correcto.'),
 
-    Array('funcionalidad_accion', 'id_accion', 'input', 16, 'cumple tamaño minimo', 'min_size', 'EDIT', 'id_accion_min_size_ko', 'El id de accion es demasiado corto. Introduzca al menos 1 numero'),
-    Array('funcionalidad_accion', 'id_accion', 'input', 17, 'cumple tamaño maximo', 'max_size', 'EDIT', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('funcionalidad_accion', 'id_accion', 'input', 18, 'cumple formato', 'format', 'EDIT', 'id_accion_format_ko', 'El id de accion tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('funcionalidad_accion', 'id_accion', 'input', 19, 'valor correcto', 'valid', 'EDIT', true, 'El id de accion es correcto.'),
+    Array('funcionalidad_accion', 'id_accion', 'select', 16, 'cumple tamaño minimo', 'min_size', 'EDIT', 'id_accion_min_size_ko', 'El id de accion es demasiado corto. Introduzca al menos 1 numero'),
+    Array('funcionalidad_accion', 'id_accion', 'select', 17, 'cumple tamaño maximo', 'max_size', 'EDIT', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('funcionalidad_accion', 'id_accion', 'select', 18, 'cumple formato', 'format', 'EDIT', 'id_accion_format_ko', 'El id de accion tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('funcionalidad_accion', 'id_accion', 'select', 19, 'valor correcto', 'valid', 'EDIT', true, 'El id de accion es correcto.'),
 
-    Array('funcionalidad_accion', 'id_accion', 'input', 20, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('funcionalidad_accion', 'id_accion', 'input', 21, 'cumple formato', 'format', 'SEARCH', 'id_accion_format_ko', 'El id de accion tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('funcionalidad_accion', 'id_accion', 'input', 22, 'valor correcto', 'valid', 'SEARCH', true, 'El id de accion es correcto.'),
+    Array('funcionalidad_accion', 'id_accion', 'select', 20, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('funcionalidad_accion', 'id_accion', 'select', 21, 'cumple formato', 'format', 'SEARCH', 'id_accion_format_ko', 'El id de accion tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('funcionalidad_accion', 'id_accion', 'select', 22, 'valor correcto', 'valid', 'SEARCH', true, 'El id de accion es correcto.'),
     
 ];
 

@@ -36,8 +36,10 @@ class Validations{
 			case 'TEXTAREA':
 				return (elemento.value.length >= minsize);
 			// ============================================================
+			// ==================== AÑADIDO: select ====================
 			case 'SELECT':
-				break;
+				return (elemento.value.length >= minsize);
+			// =========================================================
 			default:
 				break;
 		}
@@ -76,8 +78,10 @@ class Validations{
 			case 'TEXTAREA':
 				return (elemento.value.length <= maxsize);
 			// ============================================================
+			// ==================== AÑADIDO: select ====================
 			case 'SELECT':
-				break;
+				return (elemento.value.length <= maxsize);
+			// =========================================================
 			default:
 				break;
 		}

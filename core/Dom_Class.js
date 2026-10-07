@@ -99,6 +99,22 @@ class dom extends dom_table {
 					this.colocarelemento(element, 'form');
 				}
 				break;
+            // ==================== AÑADIDO: select ====================
+			case 'select':
+    			for (var clave in valores){
+        			var element = document.createElement('select');
+        			element.id = clave;
+        			element.name = clave;
+        			// un select sin options siempre devuelve value '' (setAttribute('value') no le afecta),
+       			 	// asi que se crea una option con el valor de la prueba y se deja seleccionada
+        			var opcion = document.createElement('option');
+        			opcion.value = valores[clave];
+        			opcion.text = valores[clave];
+        			opcion.selected = true;
+        			element.appendChild(opcion);
+        			this.colocarelemento(element, 'form');
+    			}
+    		break;
 			// ============================================================
 			case 'file':
 				element = this.createInput(nombrecampo, tipo);

@@ -1,49 +1,49 @@
 let rolaccionfuncionalidad_def_tests = [
 
-    // --- id_funcionalidad ---
-    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'input', 1, 'cumple tamaño minimo', 'min_size', 'ADD', 'id_funcionalidad_min_size_ko', 'El id de funcionalidad es demasiado corto. Introduzca al menos 1 numeros'),
-    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'input', 2, 'cumple tamaño maximo', 'max_size', 'ADD', 'id_funcionalidad_max_size_ko', 'El id de funcionalidad es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'input', 3, 'cumple formato', 'format', 'ADD', 'id_funcionalidad_format_ko', 'El id de funcionalidad tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'input', 4, 'valor correcto', 'valid', 'ADD', true, 'El id de funcionalidad es correcto.'),   
+    // --- id_funcionalidad (Cambiado a 'select' por ser clave ajena) ---
+    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'select', 1, 'cumple tamaño minimo', 'min_size', 'ADD', 'id_funcionalidad_min_size_ko', 'El id de funcionalidad es demasiado corto. Introduzca al menos 1 numero'),
+    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'select', 2, 'cumple tamaño maximo', 'max_size', 'ADD', 'id_funcionalidad_max_size_ko', 'El id de funcionalidad es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'select', 3, 'cumple formato', 'format', 'ADD', 'id_funcionalidad_format_ko', 'El id de funcionalidad tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'select', 4, 'valor correcto', 'valid', 'ADD', true, 'El id de funcionalidad es correcto.'),   
     
-    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'input', 5, 'cumple tamaño minimo', 'min_size', 'EDIT', 'id_funcionalidad_min_size_ko', 'El id de funcionalidad es demasiado corto. Introduzca al menos 1 numeros'),
-    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'input', 6, 'cumple tamaño maximo', 'max_size', 'EDIT', 'id_funcionalidad_max_size_ko', 'El id de funcionalidad es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'input', 7, 'cumple formato', 'format', 'EDIT', 'id_funcionalidad_format_ko', 'El id de funcionalidad tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'input', 8, 'valor correcto', 'valid', 'EDIT', true, 'El id de funcionalidad es correcto.'),
+    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'select', 5, 'cumple tamaño minimo', 'min_size', 'EDIT', 'id_funcionalidad_min_size_ko', 'El id de funcionalidad es demasiado corto. Introduzca al menos 1 numero'),
+    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'select', 6, 'cumple tamaño maximo', 'max_size', 'EDIT', 'id_funcionalidad_max_size_ko', 'El id de funcionalidad es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'select', 7, 'cumple formato', 'format', 'EDIT', 'id_funcionalidad_format_ko', 'El id de funcionalidad tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'select', 8, 'valor correcto', 'valid', 'EDIT', true, 'El id de funcionalidad es correcto.'),
 
-    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'input', 9, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'id_funcionalidad_max_size_ko', 'El id de funcionalidad es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'input', 10, 'cumple formato', 'format', 'SEARCH', 'id_funcionalidad_format_ko', 'El id de funcionalidad tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'input', 11, 'valor correcto', 'valid', 'SEARCH', true, 'El id de funcionalidad es correcto.'),
+    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'select', 9, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'id_funcionalidad_max_size_ko', 'El id de funcionalidad es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'select', 10, 'cumple formato', 'format', 'SEARCH', 'id_funcionalidad_format_ko', 'El id de funcionalidad tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('rolaccionfuncionalidad', 'id_funcionalidad', 'select', 11, 'valor correcto', 'valid', 'SEARCH', true, 'El id de funcionalidad es correcto.'),
 
-    // --- id_accion ---
-    Array('rolaccionfuncionalidad', 'id_accion', 'input', 12, 'cumple tamaño minimo', 'min_size', 'ADD', 'id_accion_min_size_ko', 'El id de accion es demasiado corto. Introduzca al menos 1 numero'),
-    Array('rolaccionfuncionalidad', 'id_accion', 'input', 13, 'cumple tamaño maximo', 'max_size', 'ADD', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('rolaccionfuncionalidad', 'id_accion', 'input', 14, 'cumple formato', 'format', 'ADD', 'id_accion_format_ko', 'El id de accion tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('rolaccionfuncionalidad', 'id_accion', 'input', 15, 'valor correcto', 'valid', 'ADD', true, 'El id de accion es correcto.'),
+    // --- id_accion (Cambiado a 'select' por ser clave ajena) ---
+    Array('rolaccionfuncionalidad', 'id_accion', 'select', 12, 'cumple tamaño minimo', 'min_size', 'ADD', 'id_accion_min_size_ko', 'El id de accion es demasiado corto. Introduzca al menos 1 numero'),
+    Array('rolaccionfuncionalidad', 'id_accion', 'select', 13, 'cumple tamaño maximo', 'max_size', 'ADD', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('rolaccionfuncionalidad', 'id_accion', 'select', 14, 'cumple formato', 'format', 'ADD', 'id_accion_format_ko', 'El id de accion tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('rolaccionfuncionalidad', 'id_accion', 'select', 15, 'valor correcto', 'valid', 'ADD', true, 'El id de accion es correcto.'),
 
-    Array('rolaccionfuncionalidad', 'id_accion', 'input', 16, 'cumple tamaño minimo', 'min_size', 'EDIT', 'id_accion_min_size_ko', 'El id de accion es demasiado corto. Introduzca al menos 1 numero'),
-    Array('rolaccionfuncionalidad', 'id_accion', 'input', 17, 'cumple tamaño maximo', 'max_size', 'EDIT', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('rolaccionfuncionalidad', 'id_accion', 'input', 18, 'cumple formato', 'format', 'EDIT', 'id_accion_format_ko', 'El id de accion tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('rolaccionfuncionalidad', 'id_accion', 'input', 19, 'valor correcto', 'valid', 'EDIT', true, 'El id de accion es correcto.'),
+    Array('rolaccionfuncionalidad', 'id_accion', 'select', 16, 'cumple tamaño minimo', 'min_size', 'EDIT', 'id_accion_min_size_ko', 'El id de accion es demasiado corto. Introduzca al menos 1 numero'),
+    Array('rolaccionfuncionalidad', 'id_accion', 'select', 17, 'cumple tamaño maximo', 'max_size', 'EDIT', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('rolaccionfuncionalidad', 'id_accion', 'select', 18, 'cumple formato', 'format', 'EDIT', 'id_accion_format_ko', 'El id de accion tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('rolaccionfuncionalidad', 'id_accion', 'select', 19, 'valor correcto', 'valid', 'EDIT', true, 'El id de accion es correcto.'),
 
-    Array('rolaccionfuncionalidad', 'id_accion', 'input', 20, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('rolaccionfuncionalidad', 'id_accion', 'input', 21, 'cumple formato', 'format', 'SEARCH', 'id_accion_format_ko', 'El id de accion tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('rolaccionfuncionalidad', 'id_accion', 'input', 22, 'valor correcto', 'valid', 'SEARCH', true, 'El id de accion es correcto.'),
+    Array('rolaccionfuncionalidad', 'id_accion', 'select', 20, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('rolaccionfuncionalidad', 'id_accion', 'select', 21, 'cumple formato', 'format', 'SEARCH', 'id_accion_format_ko', 'El id de accion tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('rolaccionfuncionalidad', 'id_accion', 'select', 22, 'valor correcto', 'valid', 'SEARCH', true, 'El id de accion es correcto.'),
 
-    // --- id_rol ---
-    Array('rolaccionfuncionalidad', 'id_rol', 'input', 23, 'cumple tamaño minimo', 'min_size', 'ADD', 'id_rol_min_size_ko', 'El id de rol es demasiado corto. Introduzca al menos 1 numero'),
-    Array('rolaccionfuncionalidad', 'id_rol', 'input', 24, 'cumple tamaño maximo', 'max_size', 'ADD', 'id_rol_max_size_ko', 'El id de rol es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('rolaccionfuncionalidad', 'id_rol', 'input', 25, 'cumple formato', 'format', 'ADD', 'id_rol_format_ko', 'El id de rol tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('rolaccionfuncionalidad', 'id_rol', 'input', 26, 'valor correcto', 'valid', 'ADD', true, 'El id de rol es correcto.'),
+    // --- id_rol (Cambiado a 'select' por ser clave ajena) ---
+    Array('rolaccionfuncionalidad', 'id_rol', 'select', 23, 'cumple tamaño minimo', 'min_size', 'ADD', 'id_rol_min_size_ko', 'El id de rol es demasiado corto. Introduzca al menos 1 numero'),
+    Array('rolaccionfuncionalidad', 'id_rol', 'select', 24, 'cumple tamaño maximo', 'max_size', 'ADD', 'id_rol_max_size_ko', 'El id de rol es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('rolaccionfuncionalidad', 'id_rol', 'select', 25, 'cumple formato', 'format', 'ADD', 'id_rol_format_ko', 'El id de rol tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('rolaccionfuncionalidad', 'id_rol', 'select', 26, 'valor correcto', 'valid', 'ADD', true, 'El id de rol es correcto.'),
 
-    Array('rolaccionfuncionalidad', 'id_rol', 'input', 27, 'cumple tamaño minimo', 'min_size', 'EDIT', 'id_rol_min_size_ko', 'El id de rol es demasiado corto. Introduzca al menos 1 numero'),
-    Array('rolaccionfuncionalidad', 'id_rol', 'input', 28, 'cumple tamaño maximo', 'max_size', 'EDIT', 'id_rol_max_size_ko', 'El id de rol es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('rolaccionfuncionalidad', 'id_rol', 'input', 29, 'cumple formato', 'format', 'EDIT', 'id_rol_format_ko', 'El id de rol tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('rolaccionfuncionalidad', 'id_rol', 'input', 30, 'valor correcto', 'valid', 'EDIT', true, 'El id de rol es correcto.'),
+    Array('rolaccionfuncionalidad', 'id_rol', 'select', 27, 'cumple tamaño minimo', 'min_size', 'EDIT', 'id_rol_min_size_ko', 'El id de rol es demasiado corto. Introduzca al menos 1 numero'),
+    Array('rolaccionfuncionalidad', 'id_rol', 'select', 28, 'cumple tamaño maximo', 'max_size', 'EDIT', 'id_rol_max_size_ko', 'El id de rol es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('rolaccionfuncionalidad', 'id_rol', 'select', 29, 'cumple formato', 'format', 'EDIT', 'id_rol_format_ko', 'El id de rol tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('rolaccionfuncionalidad', 'id_rol', 'select', 30, 'valor correcto', 'valid', 'EDIT', true, 'El id de rol es correcto.'),
 
-    Array('rolaccionfuncionalidad', 'id_rol', 'input', 31, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'id_rol_max_size_ko', 'El id de rol es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
-    Array('rolaccionfuncionalidad', 'id_rol', 'input', 32, 'cumple formato', 'format', 'SEARCH', 'id_rol_format_ko', 'El id de rol tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
-    Array('rolaccionfuncionalidad', 'id_rol', 'input', 33, 'valor correcto', 'valid', 'SEARCH', true, 'El id de rol es correcto.'),
+    Array('rolaccionfuncionalidad', 'id_rol', 'select', 31, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'id_rol_max_size_ko', 'El id de rol es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('rolaccionfuncionalidad', 'id_rol', 'select', 32, 'cumple formato', 'format', 'SEARCH', 'id_rol_format_ko', 'El id de rol tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
+    Array('rolaccionfuncionalidad', 'id_rol', 'select', 33, 'valor correcto', 'valid', 'SEARCH', true, 'El id de rol es correcto.'),
 
 ];
 
