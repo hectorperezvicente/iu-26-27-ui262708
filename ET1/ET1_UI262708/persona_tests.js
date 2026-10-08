@@ -1,19 +1,6 @@
-/*
-  persona_tests.js
-  Definicion de tests (persona_def_tests) y bateria de pruebas (persona_pruebas)
-  de la entidad persona, separados por campo y por accion (ADD, EDIT, SEARCH).
-  Entrega ET1 - Interfaces de Usuario 2026-2027
-
-  Estructura persona_def_tests:
-  [entidad, campo, elemento, num_test, descripcion, validacion, accion, resultado_esperado, mensaje]
-  Estructura persona_pruebas:
-  [entidad, campo, num_test, num_prueba, accion, {campo: valor}, resultado_esperado]
-*/
 let persona_def_tests = Array(
 
-	// ============================================================
-	// CAMPO: dni
-	// ============================================================
+	/* ==================== DNI ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'dni', 'input', 1, 'cumple tamaño minimo', 'min_size', 'ADD', 'dni_min_size_ko', 'DNI demasiado corto. Debe tener 9 caracteres: 8 numeros y 1 letra mayuscula'),
@@ -34,9 +21,7 @@ let persona_def_tests = Array(
 	Array('persona', 'dni', 'input', 12, 'cumple formato', 'format', 'SEARCH', 'dni_format_ko', 'Formato de busqueda de DNI incorrecto. Solo se permiten numeros y letras mayusculas'),
 	Array('persona', 'dni', 'input', 13, 'es correcto', 'valid', 'SEARCH', true, 'Busqueda por DNI correcta'),
 
-	// ============================================================
-	// CAMPO: nombre_persona
-	// ============================================================
+/* ==================== NOMBRE_PERSONA ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'nombre_persona', 'input', 14, 'cumple tamaño minimo', 'min_size', 'ADD', 'nombre_persona_min_size_ko', 'Nombre demasiado corto. Debe tener entre 2 y 45 caracteres'),
@@ -55,9 +40,7 @@ let persona_def_tests = Array(
 	Array('persona', 'nombre_persona', 'input', 23, 'cumple formato', 'format', 'SEARCH', 'nombre_persona_format_ko', 'Formato de busqueda de nombre incorrecto. Solo se permiten letras (incluidas ñ y acentos), puntos, guiones y espacios'),
 	Array('persona', 'nombre_persona', 'input', 24, 'es correcto', 'valid', 'SEARCH', true, 'Busqueda por nombre correcta'),
 
-	// ============================================================
-	// CAMPO: apellidos_persona
-	// ============================================================
+/* ==================== APELLIDOS_PERSONA ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'apellidos_persona', 'input', 25, 'cumple tamaño minimo', 'min_size', 'ADD', 'apellidos_persona_min_size_ko', 'Apellidos demasiado corto. Debe tener entre 3 y 100 caracteres'),
@@ -76,9 +59,7 @@ let persona_def_tests = Array(
 	Array('persona', 'apellidos_persona', 'input', 34, 'cumple formato', 'format', 'SEARCH', 'apellidos_persona_format_ko', 'Formato de busqueda de apellidos incorrecto. Solo se permiten letras (incluidas ñ y acentos), puntos, guiones y espacios'),
 	Array('persona', 'apellidos_persona', 'input', 35, 'es correcto', 'valid', 'SEARCH', true, 'Busqueda por apellidos correcta'),
 
-	// ============================================================
-	// CAMPO: fechaNacimiento_persona
-	// ============================================================
+/* ==================== FECHA_NACIMIENTO_PERSONA ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'fechaNacimiento_persona', 'input', 36, 'cumple tamaño minimo', 'min_size', 'ADD', 'fechaNacimiento_persona_min_size_ko', 'Fecha demasiado corta. Debe tener el formato dd/mm/aaaa'),
@@ -100,10 +81,8 @@ let persona_def_tests = Array(
 	Array('persona', 'fechaNacimiento_persona', 'input', 48, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'fechaNacimiento_persona_max_size_ko', 'Fecha demasiado larga. Debe tener como maximo 10 caracteres'),
 	Array('persona', 'fechaNacimiento_persona', 'input', 49, 'cumple formato', 'format', 'SEARCH', 'fechaNacimiento_persona_format_ko', 'Formato de busqueda de fecha incorrecto. Solo se permiten numeros y /'),
 	Array('persona', 'fechaNacimiento_persona', 'input', 50, 'es correcto', 'valid', 'SEARCH', true, 'Busqueda por fecha correcta'),
-
-	// ============================================================
-	// CAMPO: direccion_persona
-	// ============================================================
+	
+/* ==================== DIRECCIÓN_PERSONA ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'direccion_persona', 'textarea', 51, 'cumple tamaño minimo', 'min_size', 'ADD', 'direccion_persona_min_size_ko', 'Direccion demasiado corta. Debe tener entre 10 y 200 caracteres'),
@@ -122,9 +101,7 @@ let persona_def_tests = Array(
 	Array('persona', 'direccion_persona', 'textarea', 60, 'cumple formato', 'format', 'SEARCH', 'direccion_persona_format_ko', 'Formato de busqueda de direccion incorrecto. Solo se permiten letras (incluidas ñ y acentos), numeros, puntos, guiones, punto y coma, espacios y /'),
 	Array('persona', 'direccion_persona', 'textarea', 61, 'es correcto', 'valid', 'SEARCH', true, 'Busqueda por direccion correcta'),
 
-	// ============================================================
-	// CAMPO: telefono_persona
-	// ============================================================
+/* ==================== TELEFONO_PERSONA ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'telefono_persona', 'input', 62, 'cumple tamaño minimo', 'min_size', 'ADD', 'telefono_persona_min_size_ko', 'Telefono demasiado corto. Debe tener 9 digitos'),
@@ -142,10 +119,8 @@ let persona_def_tests = Array(
 	Array('persona', 'telefono_persona', 'input', 70, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'telefono_persona_max_size_ko', 'Telefono demasiado largo. Debe tener como maximo 9 digitos'),
 	Array('persona', 'telefono_persona', 'input', 71, 'cumple formato', 'format', 'SEARCH', 'telefono_persona_format_ko', 'Formato de busqueda de telefono incorrecto. Solo se permiten digitos'),
 	Array('persona', 'telefono_persona', 'input', 72, 'es correcto', 'valid', 'SEARCH', true, 'Busqueda por telefono correcta'),
-
-	// ============================================================
-	// CAMPO: email_persona
-	// ============================================================
+	
+/* ==================== EMAIL_PERSONA ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'email_persona', 'input', 73, 'cumple tamaño maximo', 'max_size', 'ADD', 'email_persona_max_size_ko', 'Email demasiado largo. Debe tener como maximo 45 caracteres'),
@@ -162,18 +137,14 @@ let persona_def_tests = Array(
 	Array('persona', 'email_persona', 'input', 80, 'cumple formato', 'format', 'SEARCH', 'email_persona_format_ko', 'Formato de busqueda de email incorrecto. Solo se permiten letras sin acentos, numeros y . _ % + - @'),
 	Array('persona', 'email_persona', 'input', 81, 'es correcto', 'valid', 'SEARCH', true, 'Busqueda por email correcta'),
 
-	// ============================================================
-	// CAMPO: foto_persona
-	// ============================================================
+/* ==================== FOTO_PERSONA ====================*/
 
 	// ---------- SEARCH ----------
 	Array('persona', 'foto_persona', 'input', 82, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'foto_persona_max_size_ko', 'Nombre de foto demasiado largo. Debe tener como maximo 15 caracteres'),
 	Array('persona', 'foto_persona', 'input', 83, 'cumple formato', 'format', 'SEARCH', 'foto_persona_format_ko', 'Formato de busqueda de foto incorrecto. Solo se permiten letras sin acentos y puntos'),
 	Array('persona', 'foto_persona', 'input', 84, 'es correcto', 'valid', 'SEARCH', true, 'Busqueda por foto correcta'),
 
-	// ============================================================
-	// CAMPO: nuevo_foto_persona
-	// ============================================================
+/* ==================== NUEVO_FOTO_PERSONA ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'nuevo_foto_persona', 'file', 85, 'existe fichero', 'exist_file', 'ADD', 'nuevo_foto_persona_exist_file_ko', 'No se ha seleccionado foto. Debe subir una foto jpg o jpeg'),
@@ -194,11 +165,9 @@ let persona_def_tests = Array(
 );
 
 let persona_pruebas = Array(
-
-	// ============================================================
-	// CAMPO: dni
-	// ============================================================
-
+	
+/* ==================== DNI ====================*/
+	
 	// ---------- ADD ----------
 	Array('persona', 'dni', 1, 1, 'ADD', { dni: '1234567Z' }, 'dni_min_size_ko'),
 	Array('persona', 'dni', 2, 2, 'ADD', { dni: '123456789Z' }, 'dni_max_size_ko'),
@@ -218,9 +187,7 @@ let persona_pruebas = Array(
 	Array('persona', 'dni', 12, 12, 'SEARCH', { dni: '1234-5' }, 'dni_format_ko'),
 	Array('persona', 'dni', 13, 13, 'SEARCH', { dni: '1234' }, true),
 
-	// ============================================================
-	// CAMPO: nombre_persona
-	// ============================================================
+/* ==================== NOMBRE_PERSONA ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'nombre_persona', 14, 14, 'ADD', { nombre_persona: 'J' }, 'nombre_persona_min_size_ko'),
@@ -272,9 +239,7 @@ let persona_pruebas = Array(
 	Array('persona', 'nombre_persona', 24, 54, 'SEARCH', { nombre_persona: 'J. Ángel Muñoz' }, true),
 
 
-	// ============================================================
-	// CAMPO: apellidos_persona
-	// ============================================================
+/* ==================== APELLIDOS_PERSONA ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'apellidos_persona', 25, 55, 'ADD', { apellidos_persona: 'Ga' }, 'apellidos_persona_min_size_ko'),
@@ -327,9 +292,7 @@ let persona_pruebas = Array(
 	Array('persona', 'apellidos_persona', 35, 95, 'SEARCH', { apellidos_persona: 'Fernández P.' }, true),
 
 
-	// ============================================================
-	// CAMPO: fechaNacimiento_persona
-	// ============================================================
+/* ==================== FECHA_NACIMIENTO_PERSONA ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'fechaNacimiento_persona', 36, 96, 'ADD', { fechaNacimiento_persona: '1/1/200' }, 'fechaNacimiento_persona_min_size_ko'),
@@ -352,9 +315,7 @@ let persona_pruebas = Array(
 	Array('persona', 'fechaNacimiento_persona', 49, 109, 'SEARCH', { fechaNacimiento_persona: '01-01' }, 'fechaNacimiento_persona_format_ko'),
 	Array('persona', 'fechaNacimiento_persona', 50, 110, 'SEARCH', { fechaNacimiento_persona: '1990' }, true),
 
-	// ============================================================
-	// CAMPO: direccion_persona
-	// ============================================================
+/* ==================== DIRECCION_PERSONA ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'direccion_persona', 51, 111, 'ADD', { direccion_persona: 'Calle 1 A' }, 'direccion_persona_min_size_ko'),
@@ -408,9 +369,7 @@ let persona_pruebas = Array(
 	Array('persona', 'direccion_persona', 61, 151, 'SEARCH', { direccion_persona: 'Avda. de la Paz 5-7' }, true),
 
 
-	// ============================================================
-	// CAMPO: telefono_persona
-	// ============================================================
+/* ==================== TELEFONO_PERSONA ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'telefono_persona', 62, 152, 'ADD', { telefono_persona: '98812345' }, 'telefono_persona_min_size_ko'),
@@ -429,9 +388,7 @@ let persona_pruebas = Array(
 	Array('persona', 'telefono_persona', 71, 161, 'SEARCH', { telefono_persona: '612-34' }, 'telefono_persona_format_ko'),
 	Array('persona', 'telefono_persona', 72, 162, 'SEARCH', { telefono_persona: '988' }, true),
 
-	// ============================================================
-	// CAMPO: email_persona
-	// ============================================================
+/* ==================== EMAIL_PERSONA ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'email_persona', 73, 163, 'ADD', { email_persona: 'a'.repeat(36) + '@correo.es' }, 'email_persona_max_size_ko'),
@@ -448,18 +405,14 @@ let persona_pruebas = Array(
 	Array('persona', 'email_persona', 80, 170, 'SEARCH', { email_persona: 'mañana@uvigo.es' }, 'email_persona_format_ko'),
 	Array('persona', 'email_persona', 81, 171, 'SEARCH', { email_persona: '@uvigo' }, true),
 
-	// ============================================================
-	// CAMPO: foto_persona
-	// ============================================================
+/* ==================== FOTO_PERSONA ====================*/
 
 	// ---------- SEARCH ----------
 	Array('persona', 'foto_persona', 82, 172, 'SEARCH', { foto_persona: 'a'.repeat(16) }, 'foto_persona_max_size_ko'),
 	Array('persona', 'foto_persona', 83, 173, 'SEARCH', { foto_persona: 'foto1.jpg' }, 'foto_persona_format_ko'),
 	Array('persona', 'foto_persona', 84, 174, 'SEARCH', { foto_persona: 'foto.jpg' }, true),
 
-	// ============================================================
-	// CAMPO: nuevo_foto_persona
-	// ============================================================
+/* ==================== NUEVO_FOTO_PERSONA ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'nuevo_foto_persona', 85, 175, 'ADD', {}, 'nuevo_foto_persona_exist_file_ko'),
