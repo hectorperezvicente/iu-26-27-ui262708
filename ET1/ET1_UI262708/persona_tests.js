@@ -62,17 +62,17 @@ let persona_def_tests = Array(
 /* ==================== FECHA_NACIMIENTO_PERSONA ====================*/
 
 	// ---------- ADD ----------
-	Array('persona', 'fechaNacimiento_persona', 'input', 36, 'cumple tamaño minimo', 'min_size', 'ADD', 'fechaNacimiento_persona_min_size_ko', 'Fecha demasiado corta. Debe tener el formato dd/mm/aaaa'),
-	Array('persona', 'fechaNacimiento_persona', 'input', 37, 'cumple tamaño maximo', 'max_size', 'ADD', 'fechaNacimiento_persona_max_size_ko', 'Fecha demasiado larga. Debe tener el formato dd/mm/aaaa'),
-	Array('persona', 'fechaNacimiento_persona', 'input', 38, 'cumple formato', 'format', 'ADD', 'fechaNacimiento_persona_format_ko', 'Formato de fecha incorrecto. Debe ser dd/mm/aaaa'),
+	Array('persona', 'fechaNacimiento_persona', 'input', 36, 'cumple tamaño minimo', 'min_size', 'ADD', 'fechaNacimiento_persona_min_size_ko', 'Fecha demasiado corta. Debe tener entre 8 y 10 caracteres con formato d/m/aaaa o dd/mm/aaaa'),
+	Array('persona', 'fechaNacimiento_persona', 'input', 37, 'cumple tamaño maximo', 'max_size', 'ADD', 'fechaNacimiento_persona_max_size_ko', 'Fecha demasiado larga. Debe tener entre 8 y 10 caracteres con formato d/m/aaaa o dd/mm/aaaa'),
+	Array('persona', 'fechaNacimiento_persona', 'input', 38, 'cumple formato', 'format', 'ADD', 'fechaNacimiento_persona_format_ko', 'Formato de fecha incorrecto. Debe ser d/m/aaaa o dd/mm/aaaa'),
 	Array('persona', 'fechaNacimiento_persona', 'input', 39, 'cumple fecha existente', 'personalized', 'ADD', 'fechaNacimiento_persona_personalized_ko', 'La fecha no existe en el calendario'),
 	Array('persona', 'fechaNacimiento_persona', 'input', 40, 'cumple fecha no posterior a la actual', 'personalized', 'ADD', 'fechaNacimiento_persona_future_date_ko', 'La fecha de nacimiento no puede ser posterior a la fecha actual'),
 	Array('persona', 'fechaNacimiento_persona', 'input', 41, 'es correcto', 'valid', 'ADD', true, 'Fecha de nacimiento correcta'),
 
 	// ---------- EDIT ----------
-	Array('persona', 'fechaNacimiento_persona', 'input', 42, 'cumple tamaño minimo', 'min_size', 'EDIT', 'fechaNacimiento_persona_min_size_ko', 'Fecha demasiado corta. Debe tener el formato dd/mm/aaaa'),
-	Array('persona', 'fechaNacimiento_persona', 'input', 43, 'cumple tamaño maximo', 'max_size', 'EDIT', 'fechaNacimiento_persona_max_size_ko', 'Fecha demasiado larga. Debe tener el formato dd/mm/aaaa'),
-	Array('persona', 'fechaNacimiento_persona', 'input', 44, 'cumple formato', 'format', 'EDIT', 'fechaNacimiento_persona_format_ko', 'Formato de fecha incorrecto. Debe ser dd/mm/aaaa'),
+	Array('persona', 'fechaNacimiento_persona', 'input', 42, 'cumple tamaño minimo', 'min_size', 'EDIT', 'fechaNacimiento_persona_min_size_ko', 'Fecha demasiado corta. Debe tener entre 8 y 10 caracteres con formato d/m/aaaa o dd/mm/aaaa'),
+	Array('persona', 'fechaNacimiento_persona', 'input', 43, 'cumple tamaño maximo', 'max_size', 'EDIT', 'fechaNacimiento_persona_max_size_ko', 'Fecha demasiado larga. Debe tener entre 8 y 10 caracteres con formato d/m/aaaa o dd/mm/aaaa'),
+	Array('persona', 'fechaNacimiento_persona', 'input', 44, 'cumple formato', 'format', 'EDIT', 'fechaNacimiento_persona_format_ko', 'Formato de fecha incorrecto. Debe ser d/m/aaaa o dd/mm/aaaa'),
 	Array('persona', 'fechaNacimiento_persona', 'input', 45, 'cumple fecha existente', 'personalized', 'EDIT', 'fechaNacimiento_persona_personalized_ko', 'La fecha no existe en el calendario'),
 	Array('persona', 'fechaNacimiento_persona', 'input', 46, 'cumple fecha no posterior a la actual', 'personalized', 'EDIT', 'fechaNacimiento_persona_future_date_ko', 'La fecha de nacimiento no puede ser posterior a la fecha actual'),
 	Array('persona', 'fechaNacimiento_persona', 'input', 47, 'es correcto', 'valid', 'EDIT', true, 'Fecha de nacimiento correcta'),
@@ -139,29 +139,49 @@ let persona_def_tests = Array(
 
 /* ==================== FOTO_PERSONA ====================*/
 
+	// ---------- ADD ----------
+	Array('persona', 'foto_persona', 'input', 82, 'cumple tamaño minimo', 'min_size', 'ADD', 'foto_persona_min_size_ko', 'Nombre de foto demasiado corto. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'foto_persona', 'input', 83, 'cumple tamaño maximo', 'max_size', 'ADD', 'foto_persona_max_size_ko', 'Nombre de foto demasiado largo. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'foto_persona', 'input', 84, 'cumple formato', 'format', 'ADD', 'foto_persona_format_ko', 'Formato de nombre de foto incorrecto. Solo letras sin acentos y puntos, con extension .jpg o .jpeg'),
+	Array('persona', 'foto_persona', 'input', 85, 'es correcto', 'valid', 'ADD', true, 'Nombre de foto correcto'),
+
+	// ---------- EDIT ----------
+	Array('persona', 'foto_persona', 'input', 86, 'cumple tamaño minimo', 'min_size', 'EDIT', 'foto_persona_min_size_ko', 'Nombre de foto demasiado corto. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'foto_persona', 'input', 87, 'cumple tamaño maximo', 'max_size', 'EDIT', 'foto_persona_max_size_ko', 'Nombre de foto demasiado largo. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'foto_persona', 'input', 88, 'cumple formato', 'format', 'EDIT', 'foto_persona_format_ko', 'Formato de nombre de foto incorrecto. Solo letras sin acentos y puntos, con extension .jpg o .jpeg'),
+	Array('persona', 'foto_persona', 'input', 89, 'es correcto', 'valid', 'EDIT', true, 'Nombre de foto correcto'),
+
 	// ---------- SEARCH ----------
-	Array('persona', 'foto_persona', 'input', 82, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'foto_persona_max_size_ko', 'Nombre de foto demasiado largo. Debe tener como maximo 15 caracteres'),
-	Array('persona', 'foto_persona', 'input', 83, 'cumple formato', 'format', 'SEARCH', 'foto_persona_format_ko', 'Formato de busqueda de foto incorrecto. Solo se permiten letras sin acentos y puntos'),
-	Array('persona', 'foto_persona', 'input', 84, 'es correcto', 'valid', 'SEARCH', true, 'Busqueda por foto correcta'),
+	Array('persona', 'foto_persona', 'input', 90, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'foto_persona_max_size_ko', 'Nombre de foto demasiado largo. Debe tener como maximo 15 caracteres'),
+	Array('persona', 'foto_persona', 'input', 91, 'cumple formato', 'format', 'SEARCH', 'foto_persona_format_ko', 'Formato de busqueda de foto incorrecto. Solo se permiten letras sin acentos y puntos'),
+	Array('persona', 'foto_persona', 'input', 92, 'es correcto', 'valid', 'SEARCH', true, 'Busqueda por foto correcta'),
 
 /* ==================== NUEVO_FOTO_PERSONA ====================*/
 
 	// ---------- ADD ----------
-	Array('persona', 'nuevo_foto_persona', 'file', 85, 'existe fichero', 'exist_file', 'ADD', 'nuevo_foto_persona_exist_file_ko', 'No se ha seleccionado foto. Debe subir una foto jpg o jpeg'),
-	Array('persona', 'nuevo_foto_persona', 'file', 86, 'cumple tamaño minimo nombre fichero', 'min_size_name_file', 'ADD', 'nuevo_foto_persona_min_size_name_file_ko', 'Nombre de foto demasiado corto. Debe tener entre 3 y 15 caracteres'),
-	Array('persona', 'nuevo_foto_persona', 'file', 87, 'cumple tamaño maximo nombre fichero', 'max_size_name_file', 'ADD', 'nuevo_foto_persona_max_size_name_file_ko', 'Nombre de foto demasiado largo. Debe tener entre 3 y 15 caracteres'),
-	Array('persona', 'nuevo_foto_persona', 'file', 88, 'cumple formato nombre fichero', 'format_name_file', 'ADD', 'nuevo_foto_persona_format_name_file_ko', 'Nombre de foto incorrecto. Solo letras sin acentos y puntos, con extension .jpg o .jpeg'),
-	Array('persona', 'nuevo_foto_persona', 'file', 89, 'cumple tipo fichero', 'type_file', 'ADD', 'nuevo_foto_persona_type_file_ko', 'Tipo de fichero incorrecto. La foto debe ser jpg o jpeg'),
-	Array('persona', 'nuevo_foto_persona', 'file', 90, 'cumple tamaño maximo fichero', 'max_size_file', 'ADD', 'nuevo_foto_persona_max_size_file_ko', 'Tamaño de foto excesivo. Debe ser como maximo 2 MB (2097152 bytes)'),
-	Array('persona', 'nuevo_foto_persona', 'file', 91, 'es correcto', 'valid', 'ADD', true, 'Foto correcta'),
+	Array('persona', 'nuevo_foto_persona', 'file', 93, 'existe fichero', 'exist_file', 'ADD', 'nuevo_foto_persona_exist_file_ko', 'No se ha seleccionado foto. Debe subir una foto jpg o jpeg'),
+	Array('persona', 'nuevo_foto_persona', 'file', 94, 'cumple tamaño minimo nombre fichero', 'min_size_name_file', 'ADD', 'nuevo_foto_persona_min_size_name_file_ko', 'Nombre de foto demasiado corto. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'nuevo_foto_persona', 'file', 95, 'cumple tamaño maximo nombre fichero', 'max_size_name_file', 'ADD', 'nuevo_foto_persona_max_size_name_file_ko', 'Nombre de foto demasiado largo. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'nuevo_foto_persona', 'file', 96, 'cumple formato nombre fichero', 'format_name_file', 'ADD', 'nuevo_foto_persona_format_name_file_ko', 'Nombre de foto incorrecto. Solo letras sin acentos y puntos, con extension .jpg o .jpeg'),
+	Array('persona', 'nuevo_foto_persona', 'file', 97, 'cumple tipo fichero', 'type_file', 'ADD', 'nuevo_foto_persona_type_file_ko', 'Tipo de fichero incorrecto. La foto debe ser jpg o jpeg'),
+	Array('persona', 'nuevo_foto_persona', 'file', 98, 'cumple tamaño maximo fichero', 'max_size_file', 'ADD', 'nuevo_foto_persona_max_size_file_ko', 'Tamaño de foto excesivo. Debe ser como maximo 2 MB (2097152 bytes)'),
+	Array('persona', 'nuevo_foto_persona', 'file', 99, 'es correcto', 'valid', 'ADD', true, 'Foto correcta'),
 
 	// ---------- EDIT ----------
-	Array('persona', 'nuevo_foto_persona', 'file', 92, 'cumple tamaño minimo nombre fichero', 'min_size_name_file', 'EDIT', 'nuevo_foto_persona_min_size_name_file_ko', 'Nombre de foto demasiado corto. Debe tener entre 3 y 15 caracteres'),
-	Array('persona', 'nuevo_foto_persona', 'file', 93, 'cumple tamaño maximo nombre fichero', 'max_size_name_file', 'EDIT', 'nuevo_foto_persona_max_size_name_file_ko', 'Nombre de foto demasiado largo. Debe tener entre 3 y 15 caracteres'),
-	Array('persona', 'nuevo_foto_persona', 'file', 94, 'cumple formato nombre fichero', 'format_name_file', 'EDIT', 'nuevo_foto_persona_format_name_file_ko', 'Nombre de foto incorrecto. Solo letras sin acentos y puntos, con extension .jpg o .jpeg'),
-	Array('persona', 'nuevo_foto_persona', 'file', 95, 'cumple tipo fichero', 'type_file', 'EDIT', 'nuevo_foto_persona_type_file_ko', 'Tipo de fichero incorrecto. La foto debe ser jpg o jpeg'),
-	Array('persona', 'nuevo_foto_persona', 'file', 96, 'cumple tamaño maximo fichero', 'max_size_file', 'EDIT', 'nuevo_foto_persona_max_size_file_ko', 'Tamaño de foto excesivo. Debe ser como maximo 2 MB (2097152 bytes)'),
-	Array('persona', 'nuevo_foto_persona', 'file', 97, 'es correcto', 'valid', 'EDIT', true, 'Foto correcta')
+	Array('persona', 'nuevo_foto_persona', 'file', 100, 'cumple tamaño minimo nombre fichero', 'min_size_name_file', 'EDIT', 'nuevo_foto_persona_min_size_name_file_ko', 'Nombre de foto demasiado corto. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'nuevo_foto_persona', 'file', 101, 'cumple tamaño maximo nombre fichero', 'max_size_name_file', 'EDIT', 'nuevo_foto_persona_max_size_name_file_ko', 'Nombre de foto demasiado largo. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'nuevo_foto_persona', 'file', 102, 'cumple formato nombre fichero', 'format_name_file', 'EDIT', 'nuevo_foto_persona_format_name_file_ko', 'Nombre de foto incorrecto. Solo letras sin acentos y puntos, con extension .jpg o .jpeg'),
+	Array('persona', 'nuevo_foto_persona', 'file', 103, 'cumple tipo fichero', 'type_file', 'EDIT', 'nuevo_foto_persona_type_file_ko', 'Tipo de fichero incorrecto. La foto debe ser jpg o jpeg'),
+	Array('persona', 'nuevo_foto_persona', 'file', 104, 'cumple tamaño maximo fichero', 'max_size_file', 'EDIT', 'nuevo_foto_persona_max_size_file_ko', 'Tamaño de foto excesivo. Debe ser como maximo 2 MB (2097152 bytes)'),
+	Array('persona', 'nuevo_foto_persona', 'file', 105, 'es correcto', 'valid', 'EDIT', true, 'Foto correcta'),
+
+	// ---------- SEARCH ----------
+	Array('persona', 'nuevo_foto_persona', 'file', 106, 'cumple tamaño minimo nombre fichero', 'min_size_name_file', 'SEARCH', 'nuevo_foto_persona_min_size_name_file_ko', 'Nombre de foto demasiado corto. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'nuevo_foto_persona', 'file', 107, 'cumple tamaño maximo nombre fichero', 'max_size_name_file', 'SEARCH', 'nuevo_foto_persona_max_size_name_file_ko', 'Nombre de foto demasiado largo. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'nuevo_foto_persona', 'file', 108, 'cumple formato nombre fichero', 'format_name_file', 'SEARCH', 'nuevo_foto_persona_format_name_file_ko', 'Nombre de foto incorrecto. Solo letras sin acentos y puntos, con extension .jpg o .jpeg'),
+	Array('persona', 'nuevo_foto_persona', 'file', 109, 'cumple tipo fichero', 'type_file', 'SEARCH', 'nuevo_foto_persona_type_file_ko', 'Tipo de fichero incorrecto. La foto debe ser jpg o jpeg'),
+	Array('persona', 'nuevo_foto_persona', 'file', 110, 'cumple tamaño maximo fichero', 'max_size_file', 'SEARCH', 'nuevo_foto_persona_max_size_file_ko', 'Tamaño de foto excesivo. Debe ser como maximo 2 MB (2097152 bytes)'),
+	Array('persona', 'nuevo_foto_persona', 'file', 111, 'es correcto', 'valid', 'SEARCH', true, 'Foto correcta')
 );
 
 let persona_pruebas = Array(
@@ -219,8 +239,8 @@ let persona_pruebas = Array(
 	Array('persona', 'nombre_persona', 20, 38, 'EDIT', { nombre_persona: 'Juan#1' }, 'nombre_persona_format_ko'),
 
 	Array('persona', 'nombre_persona', 21, 39, 'EDIT', { nombre_persona: 'José Ángel' }, true),
-	Array('persona', 'nombre_persona', 20, 40, 'EDIT', { nombre_persona: 'José-María' }, true),
-	Array('persona', 'nombre_persona', 20, 41, 'EDIT', { nombre_persona: 'J. Ángel Muñoz' }, true),
+	Array('persona', 'nombre_persona', 21, 40, 'EDIT', { nombre_persona: 'José-María' }, true),
+	Array('persona', 'nombre_persona', 21, 41, 'EDIT', { nombre_persona: 'J. Ángel Muñoz' }, true),
 
 	// ---------- SEARCH ----------
 	Array('persona', 'nombre_persona', 22, 42, 'SEARCH', { nombre_persona: 'a'.repeat(46) }, 'nombre_persona_max_size_ko'),
@@ -300,7 +320,7 @@ let persona_pruebas = Array(
 	Array('persona', 'fechaNacimiento_persona', 38, 98, 'ADD', { fechaNacimiento_persona: '01-01-2000' }, 'fechaNacimiento_persona_format_ko'),
 	Array('persona', 'fechaNacimiento_persona', 39, 99, 'ADD', { fechaNacimiento_persona: '31/02/2000' }, 'fechaNacimiento_persona_personalized_ko'),
 	Array('persona', 'fechaNacimiento_persona', 40, 100, 'ADD', { fechaNacimiento_persona: '31/12/2999' }, 'fechaNacimiento_persona_future_date_ko'),
-	Array('persona', 'fechaNacimiento_persona', 41, 101, 'ADD', { fechaNacimiento_persona: '15/08/1990' }, true),
+	Array('persona', 'fechaNacimiento_persona', 41, 101, 'ADD', { fechaNacimiento_persona: '1/1/2000' }, true),
 
 	// ---------- EDIT ----------
 	Array('persona', 'fechaNacimiento_persona', 42, 102, 'EDIT', { fechaNacimiento_persona: '1/1/200' }, 'fechaNacimiento_persona_min_size_ko'),
@@ -407,27 +427,47 @@ let persona_pruebas = Array(
 
 /* ==================== FOTO_PERSONA ====================*/
 
+	// ---------- ADD ----------
+	Array('persona', 'foto_persona', 82, 172, 'ADD', { foto_persona: '.jpg' }, 'foto_persona_min_size_ko'),
+	Array('persona', 'foto_persona', 83, 173, 'ADD', { foto_persona: 'a'.repeat(16) }, 'foto_persona_max_size_ko'),
+	Array('persona', 'foto_persona', 84, 174, 'ADD', { foto_persona: 'foto1.jpg' }, 'foto_persona_format_ko'),
+	Array('persona', 'foto_persona', 85, 175, 'ADD', { foto_persona: 'foto.jpg' }, true),
+
+	// ---------- EDIT ----------
+	Array('persona', 'foto_persona', 86, 176, 'EDIT', { foto_persona: '.jpg' }, 'foto_persona_min_size_ko'),
+	Array('persona', 'foto_persona', 87, 177, 'EDIT', { foto_persona: 'a'.repeat(16) }, 'foto_persona_max_size_ko'),
+	Array('persona', 'foto_persona', 88, 178, 'EDIT', { foto_persona: 'foto1.jpg' }, 'foto_persona_format_ko'),
+	Array('persona', 'foto_persona', 89, 179, 'EDIT', { foto_persona: 'foto.jpg' }, true),
+
 	// ---------- SEARCH ----------
-	Array('persona', 'foto_persona', 82, 172, 'SEARCH', { foto_persona: 'a'.repeat(16) }, 'foto_persona_max_size_ko'),
-	Array('persona', 'foto_persona', 83, 173, 'SEARCH', { foto_persona: 'foto1.jpg' }, 'foto_persona_format_ko'),
-	Array('persona', 'foto_persona', 84, 174, 'SEARCH', { foto_persona: 'foto.jpg' }, true),
+	Array('persona', 'foto_persona', 90, 180, 'SEARCH', { foto_persona: 'a'.repeat(16) }, 'foto_persona_max_size_ko'),
+	Array('persona', 'foto_persona', 91, 181, 'SEARCH', { foto_persona: 'foto1.jpg' }, 'foto_persona_format_ko'),
+	Array('persona', 'foto_persona', 92, 182, 'SEARCH', { foto_persona: 'foto.jpg' }, true),
 
 /* ==================== NUEVO_FOTO_PERSONA ====================*/
 
 	// ---------- ADD ----------
-	Array('persona', 'nuevo_foto_persona', 85, 175, 'ADD', {}, 'nuevo_foto_persona_exist_file_ko'),
-	Array('persona', 'nuevo_foto_persona', 86, 176, 'ADD', { nuevo_foto_persona: { format_name_file: 'ab', type_file: 'image/jpeg', max_size_file: 200 } }, 'nuevo_foto_persona_min_size_name_file_ko'),
-	Array('persona', 'nuevo_foto_persona', 87, 177, 'ADD', { nuevo_foto_persona: { format_name_file: 'fotodemasiadolarga.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, 'nuevo_foto_persona_max_size_name_file_ko'),
-	Array('persona', 'nuevo_foto_persona', 88, 178, 'ADD', { nuevo_foto_persona: { format_name_file: 'nombrejpg00.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, 'nuevo_foto_persona_format_name_file_ko'),
-	Array('persona', 'nuevo_foto_persona', 89, 179, 'ADD', { nuevo_foto_persona: { format_name_file: 'foto.jpg', type_file: 'image/png', max_size_file: 200 } }, 'nuevo_foto_persona_type_file_ko'),
-	Array('persona', 'nuevo_foto_persona', 90, 180, 'ADD', { nuevo_foto_persona: { format_name_file: 'foto.jpg', type_file: 'image/jpeg', max_size_file: 2097153 } }, 'nuevo_foto_persona_max_size_file_ko'),
-	Array('persona', 'nuevo_foto_persona', 91, 181, 'ADD', { nuevo_foto_persona: { format_name_file: 'foto.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, true),
+	Array('persona', 'nuevo_foto_persona', 93, 183, 'ADD', {}, 'nuevo_foto_persona_exist_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 94, 184, 'ADD', { nuevo_foto_persona: { format_name_file: '.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, 'nuevo_foto_persona_min_size_name_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 95, 185, 'ADD', { nuevo_foto_persona: { format_name_file: 'fotodemasiadolarga.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, 'nuevo_foto_persona_max_size_name_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 96, 186, 'ADD', { nuevo_foto_persona: { format_name_file: 'nombrejpg00.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, 'nuevo_foto_persona_format_name_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 97, 187, 'ADD', { nuevo_foto_persona: { format_name_file: 'foto.jpg', type_file: 'image/png', max_size_file: 200 } }, 'nuevo_foto_persona_type_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 98, 188, 'ADD', { nuevo_foto_persona: { format_name_file: 'foto.jpg', type_file: 'image/jpeg', max_size_file: 2097153 } }, 'nuevo_foto_persona_max_size_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 99, 189, 'ADD', { nuevo_foto_persona: { format_name_file: 'foto.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, true),
 
 	// ---------- EDIT ----------
-	Array('persona', 'nuevo_foto_persona', 92, 182, 'EDIT', { nuevo_foto_persona: { format_name_file: 'ab', type_file: 'image/jpeg', max_size_file: 200 } }, 'nuevo_foto_persona_min_size_name_file_ko'),
-	Array('persona', 'nuevo_foto_persona', 93, 183, 'EDIT', { nuevo_foto_persona: { format_name_file: 'fotodemasiadolarga.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, 'nuevo_foto_persona_max_size_name_file_ko'),
-	Array('persona', 'nuevo_foto_persona', 94, 184, 'EDIT', { nuevo_foto_persona: { format_name_file: 'nombrejpg00.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, 'nuevo_foto_persona_format_name_file_ko'),
-	Array('persona', 'nuevo_foto_persona', 95, 185, 'EDIT', { nuevo_foto_persona: { format_name_file: 'foto.jpg', type_file: 'image/png', max_size_file: 200 } }, 'nuevo_foto_persona_type_file_ko'),
-	Array('persona', 'nuevo_foto_persona', 96, 186, 'EDIT', { nuevo_foto_persona: { format_name_file: 'foto.jpg', type_file: 'image/jpeg', max_size_file: 2097153 } }, 'nuevo_foto_persona_max_size_file_ko'),
-	Array('persona', 'nuevo_foto_persona', 97, 187, 'EDIT', { nuevo_foto_persona: { format_name_file: 'foto.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, true)
+	Array('persona', 'nuevo_foto_persona', 100, 190, 'EDIT', { nuevo_foto_persona: { format_name_file: '.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, 'nuevo_foto_persona_min_size_name_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 101, 191, 'EDIT', { nuevo_foto_persona: { format_name_file: 'fotodemasiadolarga.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, 'nuevo_foto_persona_max_size_name_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 102, 192, 'EDIT', { nuevo_foto_persona: { format_name_file: 'nombrejpg00.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, 'nuevo_foto_persona_format_name_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 103, 193, 'EDIT', { nuevo_foto_persona: { format_name_file: 'foto.jpg', type_file: 'image/png', max_size_file: 200 } }, 'nuevo_foto_persona_type_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 104, 194, 'EDIT', { nuevo_foto_persona: { format_name_file: 'foto.jpg', type_file: 'image/jpeg', max_size_file: 2097153 } }, 'nuevo_foto_persona_max_size_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 105, 195, 'EDIT', { nuevo_foto_persona: { format_name_file: 'foto.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, true),
+
+	// ---------- SEARCH ----------
+	Array('persona', 'nuevo_foto_persona', 106, 196, 'SEARCH', { nuevo_foto_persona: { format_name_file: '.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, 'nuevo_foto_persona_min_size_name_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 107, 197, 'SEARCH', { nuevo_foto_persona: { format_name_file: 'fotodemasiadolarga.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, 'nuevo_foto_persona_max_size_name_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 108, 198, 'SEARCH', { nuevo_foto_persona: { format_name_file: 'nombrejpg00.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, 'nuevo_foto_persona_format_name_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 109, 199, 'SEARCH', { nuevo_foto_persona: { format_name_file: 'foto.jpg', type_file: 'image/png', max_size_file: 200 } }, 'nuevo_foto_persona_type_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 110, 200, 'SEARCH', { nuevo_foto_persona: { format_name_file: 'foto.jpg', type_file: 'image/jpeg', max_size_file: 2097153 } }, 'nuevo_foto_persona_max_size_file_ko'),
+	Array('persona', 'nuevo_foto_persona', 111, 201, 'SEARCH', { nuevo_foto_persona: { format_name_file: 'foto.jpg', type_file: 'image/jpeg', max_size_file: 200 } }, true)
 );
