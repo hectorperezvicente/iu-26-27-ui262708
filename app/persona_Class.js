@@ -300,7 +300,7 @@ class persona extends Validations{
 			return this.error_campo('nuevo_foto_persona','nuevo_foto_persona_max_size_name_file_ko');
 		}
 		// letras sin acentos y puntos, extension jpg o jpeg
-		if (!(this.format_name_file('nuevo_foto_persona','^[A-Za-z.]+\\.(jpg|jpeg|JPG|JPEG)$'))){
+		if (!(this.format_name_file('nuevo_foto_persona','^[A-Za-z.]+\\.(jpg|jpeg)$'))){
 			return this.error_campo('nuevo_foto_persona','nuevo_foto_persona_format_name_file_ko');
 		}
 		if (!(this.type_file('nuevo_foto_persona',['image/jpeg']))){

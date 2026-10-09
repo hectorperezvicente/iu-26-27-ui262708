@@ -43,19 +43,19 @@ let persona_def_tests = Array(
 /* ==================== APELLIDOS_PERSONA ====================*/
 
 	// ---------- ADD ----------
-	Array('persona', 'apellidos_persona', 'input', 25, 'cumple tamaño minimo', 'min_size', 'ADD', 'apellidos_persona_min_size_ko', 'Apellidos demasiado corto. Debe tener entre 3 y 100 caracteres'),
-	Array('persona', 'apellidos_persona', 'input', 26, 'cumple tamaño maximo', 'max_size', 'ADD', 'apellidos_persona_max_size_ko', 'Apellidos demasiado largo. Debe tener entre 3 y 100 caracteres'),
+	Array('persona', 'apellidos_persona', 'input', 25, 'cumple tamaño minimo', 'min_size', 'ADD', 'apellidos_persona_min_size_ko', 'Apellidos demasiado cortos. Debe tener entre 3 y 100 caracteres'),
+	Array('persona', 'apellidos_persona', 'input', 26, 'cumple tamaño maximo', 'max_size', 'ADD', 'apellidos_persona_max_size_ko', 'Apellidos demasiado largos. Debe tener entre 3 y 100 caracteres'),
 	Array('persona', 'apellidos_persona', 'input', 27, 'cumple formato', 'format', 'ADD', 'apellidos_persona_format_ko', 'Formato de apellidos incorrecto. Solo se permiten letras (incluidas ñ y acentos), puntos, guiones y espacios'),
-	Array('persona', 'apellidos_persona', 'input', 28, 'es correcto', 'valid', 'ADD', true, 'Apellidos correcto'),
+	Array('persona', 'apellidos_persona', 'input', 28, 'es correcto', 'valid', 'ADD', true, 'Apellidos correctos'),
 
 	// ---------- EDIT ----------
-	Array('persona', 'apellidos_persona', 'input', 29, 'cumple tamaño minimo', 'min_size', 'EDIT', 'apellidos_persona_min_size_ko', 'Apellidos demasiado corto. Debe tener entre 3 y 100 caracteres'),
-	Array('persona', 'apellidos_persona', 'input', 30, 'cumple tamaño maximo', 'max_size', 'EDIT', 'apellidos_persona_max_size_ko', 'Apellidos demasiado largo. Debe tener entre 3 y 100 caracteres'),
+	Array('persona', 'apellidos_persona', 'input', 29, 'cumple tamaño minimo', 'min_size', 'EDIT', 'apellidos_persona_min_size_ko', 'Apellidos demasiado cortos. Debe tener entre 3 y 100 caracteres'),
+	Array('persona', 'apellidos_persona', 'input', 30, 'cumple tamaño maximo', 'max_size', 'EDIT', 'apellidos_persona_max_size_ko', 'Apellidos demasiado largos. Debe tener entre 3 y 100 caracteres'),
 	Array('persona', 'apellidos_persona', 'input', 31, 'cumple formato', 'format', 'EDIT', 'apellidos_persona_format_ko', 'Formato de apellidos incorrecto. Solo se permiten letras (incluidas ñ y acentos), puntos, guiones y espacios'),
-	Array('persona', 'apellidos_persona', 'input', 32, 'es correcto', 'valid', 'EDIT', true, 'Apellidos correcto'),
+	Array('persona', 'apellidos_persona', 'input', 32, 'es correcto', 'valid', 'EDIT', true, 'Apellidos correctos'),
 
 	// ---------- SEARCH ----------
-	Array('persona', 'apellidos_persona', 'input', 33, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'apellidos_persona_max_size_ko', 'Apellidos demasiado largo. Debe tener como maximo 100 caracteres'),
+	Array('persona', 'apellidos_persona', 'input', 33, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'apellidos_persona_max_size_ko', 'Apellidos demasiado largos. Debe tener como maximo 100 caracteres'),
 	Array('persona', 'apellidos_persona', 'input', 34, 'cumple formato', 'format', 'SEARCH', 'apellidos_persona_format_ko', 'Formato de busqueda de apellidos incorrecto. Solo se permiten letras (incluidas ñ y acentos), puntos, guiones y espacios'),
 	Array('persona', 'apellidos_persona', 'input', 35, 'es correcto', 'valid', 'SEARCH', true, 'Busqueda por apellidos correcta'),
 
@@ -82,7 +82,7 @@ let persona_def_tests = Array(
 	Array('persona', 'fechaNacimiento_persona', 'input', 49, 'cumple formato', 'format', 'SEARCH', 'fechaNacimiento_persona_format_ko', 'Formato de busqueda de fecha incorrecto. Solo se permiten numeros y /'),
 	Array('persona', 'fechaNacimiento_persona', 'input', 50, 'es correcto', 'valid', 'SEARCH', true, 'Busqueda por fecha correcta'),
 	
-/* ==================== DIRECCIÓN_PERSONA ====================*/
+/* ==================== DIRECCION_PERSONA ====================*/
 
 	// ---------- ADD ----------
 	Array('persona', 'direccion_persona', 'textarea', 51, 'cumple tamaño minimo', 'min_size', 'ADD', 'direccion_persona_min_size_ko', 'Direccion demasiado corta. Debe tener entre 10 y 200 caracteres'),
@@ -160,24 +160,24 @@ let persona_def_tests = Array(
 
 	// ---------- ADD ----------
 	Array('persona', 'nuevo_foto_persona', 'file', 93, 'existe fichero', 'exist_file', 'ADD', 'nuevo_foto_persona_exist_file_ko', 'No se ha seleccionado foto. Debe subir una foto jpg o jpeg'),
-	Array('persona', 'nuevo_foto_persona', 'file', 94, 'cumple tamaño minimo nombre fichero', 'min_size_name_file', 'ADD', 'nuevo_foto_persona_min_size_name_file_ko', 'Nombre de foto demasiado corto. Debe tener entre 5 y 15 caracteres'),
-	Array('persona', 'nuevo_foto_persona', 'file', 95, 'cumple tamaño maximo nombre fichero', 'max_size_name_file', 'ADD', 'nuevo_foto_persona_max_size_name_file_ko', 'Nombre de foto demasiado largo. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'nuevo_foto_persona', 'file', 94, 'cumple tamaño minimo nombre fichero', 'personalized', 'ADD', 'nuevo_foto_persona_min_size_name_file_ko', 'Nombre de foto demasiado corto. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'nuevo_foto_persona', 'file', 95, 'cumple tamaño maximo nombre fichero', 'personalized', 'ADD', 'nuevo_foto_persona_max_size_name_file_ko', 'Nombre de foto demasiado largo. Debe tener entre 5 y 15 caracteres'),
 	Array('persona', 'nuevo_foto_persona', 'file', 96, 'cumple formato nombre fichero', 'format_name_file', 'ADD', 'nuevo_foto_persona_format_name_file_ko', 'Nombre de foto incorrecto. Solo letras sin acentos y puntos, con extension .jpg o .jpeg'),
 	Array('persona', 'nuevo_foto_persona', 'file', 97, 'cumple tipo fichero', 'type_file', 'ADD', 'nuevo_foto_persona_type_file_ko', 'Tipo de fichero incorrecto. La foto debe ser jpg o jpeg'),
 	Array('persona', 'nuevo_foto_persona', 'file', 98, 'cumple tamaño maximo fichero', 'max_size_file', 'ADD', 'nuevo_foto_persona_max_size_file_ko', 'Tamaño de foto excesivo. Debe ser como maximo 2 MB (2097152 bytes)'),
 	Array('persona', 'nuevo_foto_persona', 'file', 99, 'es correcto', 'valid', 'ADD', true, 'Foto correcta'),
 
 	// ---------- EDIT ----------
-	Array('persona', 'nuevo_foto_persona', 'file', 100, 'cumple tamaño minimo nombre fichero', 'min_size_name_file', 'EDIT', 'nuevo_foto_persona_min_size_name_file_ko', 'Nombre de foto demasiado corto. Debe tener entre 5 y 15 caracteres'),
-	Array('persona', 'nuevo_foto_persona', 'file', 101, 'cumple tamaño maximo nombre fichero', 'max_size_name_file', 'EDIT', 'nuevo_foto_persona_max_size_name_file_ko', 'Nombre de foto demasiado largo. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'nuevo_foto_persona', 'file', 100, 'cumple tamaño minimo nombre fichero', 'personalized', 'EDIT', 'nuevo_foto_persona_min_size_name_file_ko', 'Nombre de foto demasiado corto. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'nuevo_foto_persona', 'file', 101, 'cumple tamaño maximo nombre fichero', 'personalized', 'EDIT', 'nuevo_foto_persona_max_size_name_file_ko', 'Nombre de foto demasiado largo. Debe tener entre 5 y 15 caracteres'),
 	Array('persona', 'nuevo_foto_persona', 'file', 102, 'cumple formato nombre fichero', 'format_name_file', 'EDIT', 'nuevo_foto_persona_format_name_file_ko', 'Nombre de foto incorrecto. Solo letras sin acentos y puntos, con extension .jpg o .jpeg'),
 	Array('persona', 'nuevo_foto_persona', 'file', 103, 'cumple tipo fichero', 'type_file', 'EDIT', 'nuevo_foto_persona_type_file_ko', 'Tipo de fichero incorrecto. La foto debe ser jpg o jpeg'),
 	Array('persona', 'nuevo_foto_persona', 'file', 104, 'cumple tamaño maximo fichero', 'max_size_file', 'EDIT', 'nuevo_foto_persona_max_size_file_ko', 'Tamaño de foto excesivo. Debe ser como maximo 2 MB (2097152 bytes)'),
 	Array('persona', 'nuevo_foto_persona', 'file', 105, 'es correcto', 'valid', 'EDIT', true, 'Foto correcta'),
 
 	// ---------- SEARCH ----------
-	Array('persona', 'nuevo_foto_persona', 'file', 106, 'cumple tamaño minimo nombre fichero', 'min_size_name_file', 'SEARCH', 'nuevo_foto_persona_min_size_name_file_ko', 'Nombre de foto demasiado corto. Debe tener entre 5 y 15 caracteres'),
-	Array('persona', 'nuevo_foto_persona', 'file', 107, 'cumple tamaño maximo nombre fichero', 'max_size_name_file', 'SEARCH', 'nuevo_foto_persona_max_size_name_file_ko', 'Nombre de foto demasiado largo. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'nuevo_foto_persona', 'file', 106, 'cumple tamaño minimo nombre fichero', 'personalized', 'SEARCH', 'nuevo_foto_persona_min_size_name_file_ko', 'Nombre de foto demasiado corto. Debe tener entre 5 y 15 caracteres'),
+	Array('persona', 'nuevo_foto_persona', 'file', 107, 'cumple tamaño maximo nombre fichero', 'personalized', 'SEARCH', 'nuevo_foto_persona_max_size_name_file_ko', 'Nombre de foto demasiado largo. Debe tener entre 5 y 15 caracteres'),
 	Array('persona', 'nuevo_foto_persona', 'file', 108, 'cumple formato nombre fichero', 'format_name_file', 'SEARCH', 'nuevo_foto_persona_format_name_file_ko', 'Nombre de foto incorrecto. Solo letras sin acentos y puntos, con extension .jpg o .jpeg'),
 	Array('persona', 'nuevo_foto_persona', 'file', 109, 'cumple tipo fichero', 'type_file', 'SEARCH', 'nuevo_foto_persona_type_file_ko', 'Tipo de fichero incorrecto. La foto debe ser jpg o jpeg'),
 	Array('persona', 'nuevo_foto_persona', 'file', 110, 'cumple tamaño maximo fichero', 'max_size_file', 'SEARCH', 'nuevo_foto_persona_max_size_file_ko', 'Tamaño de foto excesivo. Debe ser como maximo 2 MB (2097152 bytes)'),
