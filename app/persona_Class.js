@@ -293,14 +293,14 @@ class persona extends Validations{
 	 * validaciones del fichero de foto cuando hay fichero seleccionado (comunes a ADD y EDIT)
 	 */
 	nuevo_foto_persona_comprobar_fichero(){
-		if (!(this.min_size_name_file('nuevo_foto_persona',3))){
+		if (!(this.min_size_name_file('nuevo_foto_persona',5))){
 			return this.error_campo('nuevo_foto_persona','nuevo_foto_persona_min_size_name_file_ko');
 		}
 		if (!(this.max_size_name_file('nuevo_foto_persona',15))){
 			return this.error_campo('nuevo_foto_persona','nuevo_foto_persona_max_size_name_file_ko');
 		}
 		// letras sin acentos y puntos, extension jpg o jpeg
-		if (!(this.format_name_file('nuevo_foto_persona','^[A-Za-z.]+\\.(jpg|jpeg|JPG|JPEG)$'))){
+		if (!(this.format_name_file('nuevo_foto_persona','^[A-Za-z.]+\\.(jpg|jpeg)$'))){
 			return this.error_campo('nuevo_foto_persona','nuevo_foto_persona_format_name_file_ko');
 		}
 		if (!(this.type_file('nuevo_foto_persona',['image/jpeg']))){
@@ -313,6 +313,28 @@ class persona extends Validations{
 		return this.exito_campo('nuevo_foto_persona');
 	}
 
+	 /* validaciones del nombre de foto (foto_persona) comunes a ADD y EDIT*/
+	foto_persona_comprobar_nombre(){
+		if (!(this.min_size('foto_persona',5))){
+			return this.error_campo('foto_persona','foto_persona_min_size_ko');
+		}
+		if (!(this.max_size('foto_persona',15))){
+			return this.error_campo('foto_persona','foto_persona_max_size_ko');
+		}
+		// letras sin acentos y puntos, extension jpg o jpeg
+		if (!(this.format('foto_persona','^[A-Za-z.]+\\.(jpg|jpeg)$'))){
+			return this.error_campo('foto_persona','foto_persona_format_ko');
+		}
+		return this.exito_campo('foto_persona');
+	}
+
+	ADD_foto_persona_validation(){
+		return this.foto_persona_comprobar_nombre();
+	}
+
+	EDIT_foto_persona_validation(){
+		return this.foto_persona_comprobar_nombre();
+	}
 	/**********************************************************************************************
 		fields validations for EDIT (mismas reglas que ADD salvo la foto, que es opcional)
 	***********************************************************************************************/
@@ -347,9 +369,8 @@ class persona extends Validations{
 
 	// foto_persona es de solo lectura en EDIT (muestra la foto actual)
 	EDIT_foto_persona_validation(){
-		return true;
+		return this.foto_persona_comprobar_nombre();
 	}
-
 	// en EDIT la foto nueva es opcional: si no hay fichero es correcto
 	EDIT_nuevo_foto_persona_validation(){
 		if (!(this.exist_file('nuevo_foto_persona'))){
@@ -444,7 +465,10 @@ class persona extends Validations{
 
 	// en SEARCH no se sube fichero
 	SEARCH_nuevo_foto_persona_validation(){
-		return true;
+		if (!(this.exist_file('nuevo_foto_persona'))){
+			return this.exito_campo('nuevo_foto_persona');
+		}
+		return this.nuevo_foto_persona_comprobar_fichero();
 	}
 
 	/**********************************************************************************************
@@ -460,6 +484,10 @@ class persona extends Validations{
 	submit_accion(accion){
 		var campos = ['dni','nombre_persona','apellidos_persona','fechaNacimiento_persona',
 					'direccion_persona','telefono_persona','email_persona','foto_persona','nuevo_foto_persona'];
+		if (accion == 'ADD'){
+			// foto_persona no la rellena el usuario en ADD (la da el fichero subido)
+			campos = campos.filter(c => c != 'foto_persona');
+		}
 		var set_result = {};
 		var result = true;
 
