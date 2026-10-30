@@ -18,6 +18,8 @@ var textos_ES = {
     // textos menu
 	'text_menu_persona': 'Gestionar persona',
 	'text_menu_usuario': 'Gestionar usuario',
+	'text_menu_rolaccionfuncionalidad': 'Gestionar rol-acción-funcionalidad',
+	'text_menu_funcionalidad_accion': 'Gestionar funcionalidad-acción',
 
     // textos entidad persona
 	'text_titulo_page_persona' : 'Gestión de Datos Personales',
@@ -131,6 +133,41 @@ var textos_ES = {
 	'id_rol_min_size_ko':'El id de rol no puede estar vacío',
 	'id_rol_max_size_ko':'Id de rol demasiado largo. Debe tener como máximo 11 dígitos',
 	'id_rol_format_ko':'Id de rol no correcto. Solo se permiten números',
+
+	// textos entidad rolaccionfuncionalidad
+	'text_titulo_page_rolaccionfuncionalidad' : 'Gestión de Roles, Acciones y Funcionalidades',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_ADD': 'Formulario Alta Rol-Acción-Funcionalidad',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_EDIT': 'Formulario Modificación Rol-Acción-Funcionalidad',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_DELETE': 'Formulario Eliminación Rol-Acción-Funcionalidad',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_SHOWCURRENT': 'Formulario Detalle Rol-Acción-Funcionalidad',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_SEARCH': 'Formulario Búsqueda Rol-Acción-Funcionalidad',
+
+	// atributos (cabeceras de la tabla; 'id_rol' ya existe)
+	'id_funcionalidad': 'Id Funcionalidad',
+	'id_accion': 'Id Acción',
+
+	// labels ('label_id_rol' ya existe)
+	'label_id_funcionalidad': 'Id Funcionalidad',
+	'label_id_accion': 'Id Acción',
+
+	// errores validaciones formulario (los de id_rol ya existen)
+	// id_funcionalidad
+	'id_funcionalidad_min_size_ko':'El id de funcionalidad no puede estar vacío',
+	'id_funcionalidad_max_size_ko':'Id de funcionalidad demasiado largo. Debe tener como máximo 11 dígitos',
+	'id_funcionalidad_format_ko':'Id de funcionalidad no correcto. Solo se permiten números',
+
+	// id_accion
+	'id_accion_min_size_ko':'El id de acción no puede estar vacío',
+	'id_accion_max_size_ko':'Id de acción demasiado largo. Debe tener como máximo 11 dígitos',
+	'id_accion_format_ko':'Id de acción no correcto. Solo se permiten números',
+
+	// textos entidad funcionalidad_accion (id_funcionalidad e id_accion ya tienen atributos, labels y errores)
+	'text_titulo_page_funcionalidad_accion' : 'Gestión de Funcionalidades y Acciones',
+	'text_contenido_titulo_form_funcionalidad_accion_ADD': 'Formulario Alta Funcionalidad-Acción',
+	'text_contenido_titulo_form_funcionalidad_accion_EDIT': 'Formulario Modificación Funcionalidad-Acción',
+	'text_contenido_titulo_form_funcionalidad_accion_DELETE': 'Formulario Eliminación Funcionalidad-Acción',
+	'text_contenido_titulo_form_funcionalidad_accion_SHOWCURRENT': 'Formulario Detalle Funcionalidad-Acción',
+	'text_contenido_titulo_form_funcionalidad_accion_SEARCH': 'Formulario Búsqueda Funcionalidad-Acción',
 
 	// resultado de un test correcto (Data_Test busca traduccion[true])
 	'true':'Valor correcto',
