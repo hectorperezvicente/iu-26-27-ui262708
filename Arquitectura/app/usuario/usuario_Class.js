@@ -17,7 +17,7 @@ class usuario extends AbstractEntidad{
 		else{
 			//visualizar seccion tabla y botones
 			document.getElementById('IU_manage_entity').style.display = 'block';
-			document.getElementById('text_title_page').classList.add('text_titulo_page_'+this.nombreentidad);
+			document.getElementById('text_title_page').className = 'text_titulo_page_'+this.nombreentidad;
 
 			//crear el formulario vacio
 			document.getElementById('contenedor_IU_form').innerHTML = this.manual_form_creation();
