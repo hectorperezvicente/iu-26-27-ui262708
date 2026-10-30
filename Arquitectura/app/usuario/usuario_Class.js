@@ -9,7 +9,7 @@ class usuario extends AbstractEntidad{
 		this.nombreentidad = 'usuario';
 
 		this.dom = new entity_dom_fields();
-		this.validations = new Validations();
+		this.validations = new entity_Validations();
 		this.access_functions = new ExternalAccess();
 
 		//init
@@ -29,8 +29,10 @@ class usuario extends AbstractEntidad{
 	}
 
 	/**
-	 * devuelve el html del formulario de la entidad (sin action ni onsubmit ni onblur:
+	 * devuelve el html del formulario de la entidad (sin action ni onsubmit ni onblur/onchange:
 	 * los pone cada createForm_<ACCION> con colocarvalidaciones)
+	 * id_rol es clave ajena, por eso es un select; siempre lleva la opcion vacia ('') para que
+	 * el SEARCH inicial y el ADD sin seleccionar envien un valor vacio al back
 	 * @returns {string} html del formulario
 	 */
 	manual_form_creation(){
@@ -38,28 +40,85 @@ class usuario extends AbstractEntidad{
 			<form id='form_iu' action="" method="POST" enctype="multipart/form-data" onsubmit="" class='formulario'>
 
 				<label class="label_dni">DNI</label>
-				<input type='text' id='dni' name='dni'></input>
+				<input type='text' id='dni' name='dni'>
 				<span id="span_error_dni"><a id="error_dni"></a></span>
 				<br>
 
 				<label class="label_usuario">Usuario</label>
-				<input type='text' id='usuario' name='usuario'></input>
+				<input type='text' id='usuario' name='usuario'>
 				<span id="span_error_usuario"><a id="error_usuario"></a></span>
 				<br>
 
 				<label class="label_contrasena">Contraseña</label>
-				<input type='password' id='contrasena' name='contrasena'></input>
+				<input type='password' id='contrasena' name='contrasena'>
 				<span id="span_error_contrasena"><a id="error_contrasena"></a></span>
 				<br>
 
 				<label class="label_id_rol">Id Rol</label>
-				<input type='text' id='id_rol' name='id_rol'></input>
+				<select id='id_rol' name='id_rol'>
+					<option value=''></option>
+				</select>
 				<span id="span_error_id_rol"><a id="error_id_rol"></a></span>
 				<br>
 
 			</form>
 		`;
 		return form_content;
+	}
+
+	/**********************************************************************************************
+		carga y bloqueo del select de id_rol
+	***********************************************************************************************/
+
+	/**
+	 * pide al back todos los roles y los añade como opciones al select id_rol.
+	 * Debe llamarse ANTES de rellenarvaloresform, que asigna el value al select.
+	 * el back devuelve cada rol con id_rol, rol_name y rol_description
+	 */
+	async cargar_select_id_rol(){
+		let respuesta = await this.access_functions.peticionBackGeneral('', 'rol', 'SEARCH');
+		let select = document.getElementById('id_rol');
+
+		if (respuesta['code'] == 'RECORDSET_DATOS'){
+			for (let i=0;i<respuesta['resource'].length;i++){
+				let fila = respuesta['resource'][i];
+				let option = document.createElement('option');
+				option.value = fila['id_rol'];
+				option.textContent = fila['id_rol']+' - '+fila['rol_name'];
+				select.append(option);
+			}
+		}
+	}
+
+	/**
+	 * deja en el select solo la opcion seleccionada: el usuario no puede cambiarlo
+	 * y el valor sigue viajando en el FormData (un select disabled no se envia)
+	 * @param {string} id id del select
+	 */
+	bloquear_select(id){
+		let select = document.getElementById(id);
+		for (let i=select.options.length-1;i>=0;i--){
+			if (!select.options[i].selected){
+				select.remove(i);
+			}
+		}
+	}
+
+	/**
+	 * El back devuelve id_rol como objeto {id_rol, rol_name, rol_description}. Se deja solo el id antes
+	 * de crear la tabla: la columna muestra el id en vez de [object Object], los onclick de EDIT/DELETE/
+	 * SHOWCURRENT no llevan la descripcion (trae &#13;&#10;, que rompe el JS del atributo) y los
+	 * formularios reciben un valor que encaja en el select.
+	 * @param {Object} datos filas devueltas por el back
+	 * @param {Array} mostrarespecial columnas con valor especial
+	 */
+	crearTablaDatos(datos, mostrarespecial){
+		for (let i=0;i<datos.length;i++){
+			if (datos[i]['id_rol'] !== null && typeof datos[i]['id_rol'] == 'object'){
+				datos[i]['id_rol'] = datos[i]['id_rol']['id_rol'];
+			}
+		}
+		super.crearTablaDatos(datos, mostrarespecial);
 	}
 
 	/**********************************************************************************************
@@ -71,7 +130,7 @@ class usuario extends AbstractEntidad{
 	 * @param {string} id id del campo
 	 * @returns {bool} true si la letra es correcta
 	 */
-	personalized_dni_letra(id){
+	personalize_dni(id){
 		let valor = document.getElementById(id).value;
 		let letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
 		let numero = parseInt(valor.substring(0,8), 10);
@@ -141,8 +200,8 @@ class usuario extends AbstractEntidad{
 		if (!(this.validations.format('dni','^[0-9]{8}[A-Z]$'))){
 			return this.error_campo('dni','dni_format_ko');
 		}
-		if (!(this.personalized_dni_letra('dni'))){
-			return this.error_campo('dni','dni_personalized_validate_dni_ko');
+		if (!(this.personalize_dni('dni'))){
+			return this.error_campo('dni','dni_personalized_ko');
 		}
 		return this.exito_campo('dni');
 	}
@@ -201,10 +260,13 @@ class usuario extends AbstractEntidad{
 	}
 
 	/**********************************************************************************************
-		fields validations for EDIT (mismas reglas que ADD; el dni es PK y va en solo lectura)
+		fields validations for EDIT (mismas reglas que ADD; el dni es PK, va en solo lectura
+		pero se valida igual porque los tests de EDIT para dni esperan los mismos errores)
 	***********************************************************************************************/
 
-	EDIT_dni_validation(){return true;}
+	EDIT_dni_validation(){
+		return this.ADD_dni_validation();
+	}
 
 	EDIT_usuario_validation(){
 		return this.ADD_usuario_validation();
@@ -272,18 +334,21 @@ class usuario extends AbstractEntidad{
 
 	/**********************************************************************************************
 		construccion de formularios por accion
+		(async porque hay que cargar los roles del back en el select antes de rellenar valores)
 	***********************************************************************************************/
 
 	/**
 	 * Construye el formulario para EDIT partiendo del formulario basico definido manualmente
 	 * @param {Object} fila objeto con los datos de la ocurrencia a modificar
 	 */
-	createForm_EDIT(fila){
+	async createForm_EDIT(fila){
 
 		// poner titulo al formulario
 		this.dom.assign_property_value('class_contenido_titulo_form','class','text_contenido_titulo_form_usuario_EDIT');
-		// limpiar y poner visible el formulario
+		// limpiar el formulario y cargar los roles en el select
 		document.getElementById('contenedor_IU_form').innerHTML = this.manual_form_creation();
+		await this.cargar_select_id_rol();
+		// poner visible el formulario
 		this.dom.show_element('Div_IU_form','block');
 
 		// rellenar onsubmit y action
@@ -292,6 +357,10 @@ class usuario extends AbstractEntidad{
 
 		// rellenar valores
 		this.dom.rellenarvaloresform(fila);
+		// si el back no devuelve la contrasena no dejar el texto "undefined" en el campo
+		if (fila['contrasena'] === undefined){
+			document.getElementById('contrasena').value = '';
+		}
 
 		// poner las validaciones
 		this.dom.colocarvalidaciones('form_iu','EDIT');
@@ -306,11 +375,13 @@ class usuario extends AbstractEntidad{
 
 	}
 
-	createForm_DELETE(fila){
+	async createForm_DELETE(fila){
 		// poner titulo al formulario
 		this.dom.assign_property_value('class_contenido_titulo_form','class','text_contenido_titulo_form_usuario_DELETE');
-		// limpiar y poner visible el formulario
+		// limpiar el formulario y cargar los roles en el select
 		document.getElementById('contenedor_IU_form').innerHTML = this.manual_form_creation();
+		await this.cargar_select_id_rol();
+		// poner visible el formulario
 		this.dom.show_element('Div_IU_form','block');
 
 		// rellenar action
@@ -321,6 +392,7 @@ class usuario extends AbstractEntidad{
 
 		// poner inactivos los campos correspondientes
 		this.dom.colocartodosreadonly('form_iu');
+		this.bloquear_select('id_rol');
 
 		// colocar boton de submit
 		this.dom.colocarboton('DELETE');
@@ -329,11 +401,13 @@ class usuario extends AbstractEntidad{
 
 	}
 
-	createForm_SHOWCURRENT(fila){
+	async createForm_SHOWCURRENT(fila){
 		// poner titulo al formulario
 		this.dom.assign_property_value('class_contenido_titulo_form','class','text_contenido_titulo_form_usuario_SHOWCURRENT');
-		// limpiar y poner visible el formulario
+		// limpiar el formulario y cargar los roles en el select
 		document.getElementById('contenedor_IU_form').innerHTML = this.manual_form_creation();
+		await this.cargar_select_id_rol();
+		// poner visible el formulario
 		this.dom.show_element('Div_IU_form','block');
 
 		// rellenar valores
@@ -341,16 +415,19 @@ class usuario extends AbstractEntidad{
 
 		// poner inactivos los campos correspondientes
 		this.dom.colocartodosreadonly('form_iu');
+		this.bloquear_select('id_rol');
 
 		setLang();
 
 	}
 
-	createForm_ADD(){
+	async createForm_ADD(){
 		// poner titulo al formulario
 		this.dom.assign_property_value('class_contenido_titulo_form','class','text_contenido_titulo_form_usuario_ADD');
-		// limpiar y poner visible el formulario
+		// limpiar el formulario y cargar los roles en el select
 		document.getElementById('contenedor_IU_form').innerHTML = this.manual_form_creation();
+		await this.cargar_select_id_rol();
+		// poner visible el formulario
 		this.dom.show_element('Div_IU_form','block');
 
 		// poner onsubmit
@@ -368,11 +445,13 @@ class usuario extends AbstractEntidad{
 		setLang();
 	}
 
-	createForm_SEARCH(){
+	async createForm_SEARCH(){
 		// poner titulo al formulario
 		this.dom.assign_property_value('class_contenido_titulo_form','class','text_contenido_titulo_form_usuario_SEARCH');
-		// limpiar y poner visible el formulario
+		// limpiar el formulario y cargar los roles en el select
 		document.getElementById('contenedor_IU_form').innerHTML = this.manual_form_creation();
+		await this.cargar_select_id_rol();
+		// poner visible el formulario
 		this.dom.show_element('Div_IU_form','block');
 
 		// poner onsubmit
@@ -393,7 +472,8 @@ class usuario extends AbstractEntidad{
 
 	/**
 	 * transforma el valor de la columna a mostrar en la tabla de datos de la entidad del back
-	 * (usuario no tiene columnas especiales: se devuelve el valor tal cual)
+	 * (usuario no tiene columnas especiales: se devuelve el valor tal cual).
+	 * El nombre cambiarmostrarespecial es el que invoca AbstractEntidad.crearTablaDatos
 	 *
 	 * @param {string} columna nombre de la columna a modificar
 	 * @param {any} valor valor inicial de la columna

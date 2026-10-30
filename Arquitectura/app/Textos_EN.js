@@ -17,6 +17,7 @@ var textos_EN = {
 
     // textos menu
 	'text_menu_persona': 'Person Management',
+	'text_menu_usuario': 'User Management',
 
     // textos entidad persona
 	'text_titulo_page_persona' : 'Personal Data Management',
@@ -92,6 +93,46 @@ var textos_EN = {
 	'RECORDSET_VACIO' : 'There are not results for your search',
 	'dni_es_nulo_ko':'DNI can not be empty',
 
-	'admin_no_se_puede_modificar_ko':'El admin no se puede modificar',
+	'admin_no_se_puede_modificar_ko':'The admin cannot be modified',
+
+	// textos entidad usuario
+	'text_titulo_page_usuario' : 'User Management',
+	'text_contenido_titulo_form_usuario_ADD': 'User ADD Form',
+	'text_contenido_titulo_form_usuario_EDIT': 'User EDIT Form',
+	'text_contenido_titulo_form_usuario_DELETE': 'User DELETE Form',
+	'text_contenido_titulo_form_usuario_SHOWCURRENT': 'User SHOWCURRENT Form',
+	'text_contenido_titulo_form_usuario_SEARCH': 'User SEARCH Form',
+
+	// atributos (cabeceras de la tabla; 'dni' ya existe)
+	'usuario': 'User',
+	'contrasena': 'Password',
+	'id_rol': 'Role Id',
+
+	// labels ('label_dni' ya existe)
+	'label_usuario': 'User',
+	'label_contrasena': 'Password',
+	'label_id_rol': 'Role Id',
+
+	// errores validaciones formulario
+	// dni (letra, comun con persona)
+	'dni_personalized_ko':'The ID letter does not match the number',
+
+	// usuario
+	'usuario_min_size_ko':'User too short. Must have at least 5 characters',
+	'usuario_max_size_ko':'User too long. Must have at most 45 characters',
+	'usuario_format_ko':'Incorrect user. Only letters without accents or ñ are allowed',
+
+	// contrasena
+	'contrasena_min_size_ko':'Password too short. Must have at least 8 characters',
+	'contrasena_max_size_ko':'Password too long. Must have at most 45 characters',
+	'contrasena_format_ko':'Incorrect password. Only letters are allowed',
+
+	// id_rol
+	'id_rol_min_size_ko':'Role id cannot be empty',
+	'id_rol_max_size_ko':'Role id too long. Must have at most 11 digits',
+	'id_rol_format_ko':'Incorrect role id. Only numbers are allowed',
+
+	// resultado de un test correcto (Data_Test busca traduccion[true])
+	'true':'Correct value',
 
 }

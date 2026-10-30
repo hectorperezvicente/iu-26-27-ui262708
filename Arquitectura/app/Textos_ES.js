@@ -114,7 +114,8 @@ var textos_ES = {
 
 	// errores validaciones formulario
 	// dni (falta el de la letra, común con persona)
-	'dni_personalized_validate_dni_ko':'La letra del DNI no corresponde con el número',
+	'dni_personalized_ko':'La letra del DNI no corresponde con el número',
+	'dni_personalized_validate_dni_ko':'La letra del DNI no corresponde con el número', // codigo antiguo: borrar si ninguna entidad lo usa
 
 	// usuario
 	'usuario_min_size_ko':'Usuario demasiado corto. Debe tener al menos 5 caracteres',
@@ -130,5 +131,8 @@ var textos_ES = {
 	'id_rol_min_size_ko':'El id de rol no puede estar vacío',
 	'id_rol_max_size_ko':'Id de rol demasiado largo. Debe tener como máximo 11 dígitos',
 	'id_rol_format_ko':'Id de rol no correcto. Solo se permiten números',
+
+	// resultado de un test correcto (Data_Test busca traduccion[true])
+	'true':'Valor correcto',
 
 }
