@@ -18,6 +18,8 @@ var textos_EN = {
     // textos menu
 	'text_menu_persona': 'Person Management',
 	'text_menu_usuario': 'User Management',
+	'text_menu_rolaccionfuncionalidad': 'Role-Action-Functionality Management',
+	'text_menu_funcionalidad_accion': 'Functionality-Action Management',
 
     // textos entidad persona
 	'text_titulo_page_persona' : 'Personal Data Management',
@@ -131,6 +133,41 @@ var textos_EN = {
 	'id_rol_min_size_ko':'Role id cannot be empty',
 	'id_rol_max_size_ko':'Role id too long. Must have at most 11 digits',
 	'id_rol_format_ko':'Incorrect role id. Only numbers are allowed',
+
+	// textos entidad rolaccionfuncionalidad
+	'text_titulo_page_rolaccionfuncionalidad' : 'Role, Action and Functionality Management',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_ADD': 'Role-Action-Functionality ADD Form',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_EDIT': 'Role-Action-Functionality EDIT Form',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_DELETE': 'Role-Action-Functionality DELETE Form',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_SHOWCURRENT': 'Role-Action-Functionality SHOWCURRENT Form',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_SEARCH': 'Role-Action-Functionality SEARCH Form',
+
+	// atributos (cabeceras de la tabla; 'id_rol' ya existe)
+	'id_funcionalidad': 'Functionality Id',
+	'id_accion': 'Action Id',
+
+	// labels ('label_id_rol' ya existe)
+	'label_id_funcionalidad': 'Functionality Id',
+	'label_id_accion': 'Action Id',
+
+	// errores validaciones formulario (los de id_rol ya existen)
+	// id_funcionalidad
+	'id_funcionalidad_min_size_ko':'Functionality id cannot be empty',
+	'id_funcionalidad_max_size_ko':'Functionality id too long. Must have at most 11 digits',
+	'id_funcionalidad_format_ko':'Incorrect functionality id. Only numbers are allowed',
+
+	// id_accion
+	'id_accion_min_size_ko':'Action id cannot be empty',
+	'id_accion_max_size_ko':'Action id too long. Must have at most 11 digits',
+	'id_accion_format_ko':'Incorrect action id. Only numbers are allowed',
+
+	// textos entidad funcionalidad_accion (id_funcionalidad e id_accion ya tienen atributos, labels y errores)
+	'text_titulo_page_funcionalidad_accion' : 'Functionality and Action Management',
+	'text_contenido_titulo_form_funcionalidad_accion_ADD': 'Functionality-Action ADD Form',
+	'text_contenido_titulo_form_funcionalidad_accion_EDIT': 'Functionality-Action EDIT Form',
+	'text_contenido_titulo_form_funcionalidad_accion_DELETE': 'Functionality-Action DELETE Form',
+	'text_contenido_titulo_form_funcionalidad_accion_SHOWCURRENT': 'Functionality-Action SHOWCURRENT Form',
+	'text_contenido_titulo_form_funcionalidad_accion_SEARCH': 'Functionality-Action SEARCH Form',
 
 	// resultado de un test correcto (Data_Test busca traduccion[true])
 	'true':'Correct value',
