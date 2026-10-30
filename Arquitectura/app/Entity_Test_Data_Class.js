@@ -1,23 +1,69 @@
 /**
- * clase para poder refactorizar los metodos que se considere adecuados manteniendo la definición de los mismos y para inclusión de nuevos métodos
+ * clase para poder refactorizar los metodos que se considere adecuados manteniendo la definicion de los mismos y para inclusion de nuevos metodos
+ *
+ * REFACTORIZADO: data_test_class
+ *  Data_Test lanza este metodo desde su constructor, justo despues de crear this.dom = new dom_fields().
+ *  Se redefine para:
+ *  - usar entity_dom_fields (dom_fields no sabe crear textarea ni select de claves ajenas)
+ *  - vaciar el contenedor del formulario antes de las pruebas (si estaba el formulario real de la entidad
+ *    cargado, getElementById devolveria sus campos, con los mismos ids, en vez de los de la prueba)
+ *    y restaurarlo despues
+ *  - mostrar el resultado en una ventana nueva, con un resumen de correctas/incorrectas
  */
-
 class entity_Test_Data extends Data_Test{
     constructor(entidad){
         super(entidad);
     }
 
-    /**
-     * Data_Test lanza este metodo desde su constructor, justo despues de crear this.dom = new dom_fields().
-     * Se redefine para:
-     *  - usar entity_dom_fields, que sabe crear los campos select (claves ajenas)
-     *  - vaciar contenedor_IU_form antes de empezar: contiene el formulario real de la entidad
-     *    con los mismos ids que los campos de prueba y getElementById devolveria el real en la primera prueba
-     */
-    data_test_class(){
-        this.dom = new entity_dom_fields();
-        this.dom.vaciarDiv('contenedor_IU_form');
-        return super.data_test_class();
-    }
+	data_test_class(){
+
+		this.dom = new entity_dom_fields();
+
+		// guardar estado del formulario y vaciarlo
+		var formulario_previo = document.getElementById('contenedor_IU_form').innerHTML;
+		this.dom.vaciarDiv('contenedor_IU_form');
+
+		var salidapruebas = this.data_test_data();
+
+		// restaurar el formulario
+		document.getElementById('contenedor_IU_form').innerHTML = formulario_previo;
+
+		// pintar la tabla con el metodo de la arquitectura en un div auxiliar y copiarla a la ventana nueva
+		let marcados = {
+			pruebastatus: {value:'INCORRECTO', style:'background-color: red'},
+			traduccionError : {value:'sintraduccion', style:'background-color: red'}
+		};
+		this.dom.showData('IU_Test_result_nofile', salidapruebas, marcados);
+		var tabla = document.getElementById('IU_Test_result_nofile').innerHTML;
+		this.dom.vaciarDiv('IU_Test_result_nofile');
+		this.dom.hide_element('IU_Test_result_nofile');
+
+		var total = salidapruebas.length;
+		var correctas = salidapruebas.filter(p => p.pruebastatus == 'CORRECTO').length;
+		var sintraduccion = salidapruebas.filter(p => p.traduccionError == 'sintraduccion').length;
+
+		var ventana = window.open('', 'test_'+this.entidad.nombreentidad);
+		if (ventana === null){
+			alert('El navegador ha bloqueado la ventana de resultados. Permite ventanas emergentes para esta pagina.');
+			return false;
+		}
+		ventana.document.open();
+		ventana.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8">
+			<title>Test `+this.entidad.nombreentidad+`</title>
+			<style>
+				body{font-family:Arial,sans-serif;font-size:13px;margin:16px;}
+				table{border-collapse:collapse;width:100%;}
+				th,td{border:1px solid black;padding:3px 6px;vertical-align:top;}
+				th{background:#ddd;}
+				.resumen{margin-bottom:12px;font-size:15px;}
+			</style></head><body>
+			<h2>Resultado pruebas entidad `+this.entidad.nombreentidad+`</h2>
+			<div class="resumen">Total: `+total+` &nbsp; Correctas: `+correctas+` &nbsp; Incorrectas: `+(total-correctas)+` &nbsp; Sin traduccion: `+sintraduccion+`</div>
+			`+tabla+`
+			</body></html>`);
+		ventana.document.close();
+
+		return true;
+	}
 
 }
