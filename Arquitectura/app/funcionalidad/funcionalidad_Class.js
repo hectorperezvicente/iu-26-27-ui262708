@@ -1,75 +1,59 @@
-class funcionalidad extends Validations{
+class funcionalidad extends AbstractEntidad{
 
 	/**
-	 * @param {string} accion 'test' para crear la entidad sin formulario (Data_Test / Unit_Test)
-	 *                        o 'ADD' / 'EDIT' / 'SEARCH' para pintar el formulario de esa accion
+	 * @param {string} esTest 'test' para crear la entidad sin pintar nada (pruebas)
 	 */
-	constructor(accion = 'ADD'){
-		super();
-		this.dom = new dom();
-		this.nombreentidad = 'funcionalidad';
+	constructor(esTest=null){
 
-		if (accion == 'test'){
-			
-		}
+		super();
+
+		this.nombreentidad = 'funcionalidad';
+		this.columnasamostrar = ['id_funcionalidad','nombre_funcionalidad','descrip_funcionalidad'];
+		this.mostrarespecial = [];
+
+		this.dom = new entity_dom_fields();
+		this.validations = new entity_validations();
+		this.access_functions = new ExternalAccess();
+
+		if (esTest == 'test'){}
 		else{
-			this.accion = accion;
-			this.dom.fillform(this.manual_form_creation(), 'IU_form');
-			this.ajustar_formulario_accion();
+			// visualizar seccion tabla y botones
+			document.getElementById('IU_manage_entity').style.display = 'block';
+			// className y no classList.add: si no, al cambiar de entidad se acumulan los titulos
+			document.getElementById('text_title_page').className = 'text_titulo_page_'+this.nombreentidad;
+
+			// crear el formulario vacio
+			document.getElementById('contenedor_IU_form').innerHTML = this.manual_form_creation();
+
+			// busqueda en back con el formulario vacio
+			this.SEARCH();
 		}
 	}
 
 	/**
-	 * crea el formulario de la entidad. Cada campo llama en onblur a la validacion
-	 * de la accion actual (this.accion) y el submit a <accion>_submit_funcionalidad
+	 * formulario base de la entidad. Sin eventos: los pone colocarvalidaciones segun la accion
 	 * @returns {string} html del formulario
 	 */
 	manual_form_creation(){
 		var form_content = `
-			<form id="form_funcionalidad" action="http://193.147.87.202/procesaform.php" method="POST" enctype="multipart/form-data" onsubmit="if (typeof entidad[entidad.accion+'_submit_funcionalidad']() === 'object') {return false} else {return true};">
+			<form id='form_iu' action="" method="POST" enctype="multipart/form-data" onsubmit="" class='formulario'>
 
-			<h3 id="titulo_accion_funcionalidad"></h3>
+				<label id="label_id_funcionalidad" class="label_id_funcionalidad">Id Funcionalidad</label>
+				<input type='text' id='id_funcionalidad' name='id_funcionalidad'></input>
+				<span id="span_error_id_funcionalidad"><a id="error_id_funcionalidad"></a></span>
+				<br>
+				<label id="label_nombre_funcionalidad" class="label_nombre_funcionalidad">Nombre Funcionalidad</label>
+				<input type='text' id='nombre_funcionalidad' name='nombre_funcionalidad'></input>
+				<span id="span_error_nombre_funcionalidad"><a id="error_nombre_funcionalidad"></a></span>
+				<br>
+				<label id="label_descrip_funcionalidad" class="label_descrip_funcionalidad">Descripci\u00F3n Funcionalidad</label>
+				<textarea rows="5" cols="33" id='descrip_funcionalidad' name='descrip_funcionalidad'></textarea>
+				<span id="span_error_descrip_funcionalidad"><a id="error_descrip_funcionalidad"></a></span>
+				<br>
 
-			<label class="label_id_funcionalidad">Id Funcionalidad</label>
-			<input type='text' id='id_funcionalidad' name='id_funcionalidad' onblur="return entidad[entidad.accion+'_id_funcionalidad_validation']();"></input>
-			<span id="span_error_id_funcionalidad"><a id="error_id_funcionalidad"></a></span>
-			<br>
-
-			<label class="label_nombre_funcionalidad">Nombre Funcionalidad</label>
-			<input type='text' id='nombre_funcionalidad' name='nombre_funcionalidad' onblur="return entidad[entidad.accion+'_nombre_funcionalidad_validation']();"></input>
-			<span id="span_error_nombre_funcionalidad"><a id="error_nombre_funcionalidad"></a></span>
-			<br>
-
-			<label class="label_descrip_funcionalidad">Descripción Funcionalidad</label>
-			<textarea rows="5" cols="33" id='descrip_funcionalidad' name='descrip_funcionalidad' onblur="return entidad[entidad.accion+'_descrip_funcionalidad_validation']();"></textarea>
-			<span id="span_error_descrip_funcionalidad"><a id="error_descrip_funcionalidad"></a></span>
-			<br>
-
-			<input id="submit_button" type="submit" value="Submit">
-
-		</form>
+			</form>
 		`;
 		return form_content;
-	}
-
-	/**
-	 * adapta el formulario a la accion:
-	 *  ADD    -> sin cambios
-	 *  EDIT   -> id_funcionalidad de solo lectura (es la PK)
-	 *  SEARCH -> sin cambios
-	 */
-	ajustar_formulario_accion(){
-		document.getElementById('titulo_accion_funcionalidad').innerHTML = this.accion;
-		document.getElementById('form_funcionalidad').action += '?accion=' + this.accion;
-		switch (this.accion){
-			case 'ADD':
-				break;
-			case 'EDIT':
-				document.getElementById('id_funcionalidad').readOnly = true;
-				break;
-			case 'SEARCH':
-				break;
-		}
 	}
 
 	/**
@@ -94,42 +78,42 @@ class funcionalidad extends Validations{
 	***********************************************************************************************/
 
 	ADD_id_funcionalidad_validation(){
-		if (!(this.min_size('id_funcionalidad',1))){
+		if (!(this.validations.min_size('id_funcionalidad',1))){
 			return this.error_campo('id_funcionalidad','id_funcionalidad_min_size_ko');
 		}
-		if (!(this.max_size('id_funcionalidad',11))){
+		if (!(this.validations.max_size('id_funcionalidad',11))){
 			return this.error_campo('id_funcionalidad','id_funcionalidad_max_size_ko');
 		}
 		// solo numeros
-		if (!(this.format('id_funcionalidad','^[0-9]+$'))){
+		if (!(this.validations.format('id_funcionalidad','^[0-9]+$'))){
 			return this.error_campo('id_funcionalidad','id_funcionalidad_format_ko');
 		}
 		return this.exito_campo('id_funcionalidad');
 	}
 
 	ADD_nombre_funcionalidad_validation(){
-		if (!(this.min_size('nombre_funcionalidad',5))){
+		if (!(this.validations.min_size('nombre_funcionalidad',5))){
 			return this.error_campo('nombre_funcionalidad','nombre_funcionalidad_min_size_ko');
 		}
-		if (!(this.max_size('nombre_funcionalidad',48))){
+		if (!(this.validations.max_size('nombre_funcionalidad',48))){
 			return this.error_campo('nombre_funcionalidad','nombre_funcionalidad_max_size_ko');
 		}
-		// solo letras, incluida la ñ
-		if (!(this.format('nombre_funcionalidad','^[A-Za-z\u00F1\u00D1]+$'))){
+		// solo letras, incluida la \u00F1
+		if (!(this.validations.format('nombre_funcionalidad','^[A-Za-z\u00F1\u00D1]+$'))){
 			return this.error_campo('nombre_funcionalidad','nombre_funcionalidad_format_ko');
 		}
 		return this.exito_campo('nombre_funcionalidad');
 	}
 
 	ADD_descrip_funcionalidad_validation(){
-		if (!(this.min_size('descrip_funcionalidad',5))){
+		if (!(this.validations.min_size('descrip_funcionalidad',5))){
 			return this.error_campo('descrip_funcionalidad','descrip_funcionalidad_min_size_ko');
 		}
-		if (!(this.max_size('descrip_funcionalidad',200))){
+		if (!(this.validations.max_size('descrip_funcionalidad',200))){
 			return this.error_campo('descrip_funcionalidad','descrip_funcionalidad_max_size_ko');
 		}
-		// letras con ñ, espacio y signos de puntuacion (. , ; : ! ? ¡ ¿ ( ) " ' -)
-		if (!(this.format('descrip_funcionalidad','^[A-Za-z\u00F1\u00D1 .,;:!?\u00A1\u00BF()"\'-]+$'))){
+		// letras con \u00F1, espacio y signos de puntuacion (. , ; : ! ? \u00A1 \u00BF ( ) " ' -)
+		if (!(this.validations.format('descrip_funcionalidad','^[A-Za-z\u00F1\u00D1 .,;:!?\u00A1\u00BF()"\'-]+$'))){
 			return this.error_campo('descrip_funcionalidad','descrip_funcionalidad_format_ko');
 		}
 		return this.exito_campo('descrip_funcionalidad');
@@ -152,34 +136,34 @@ class funcionalidad extends Validations{
 	}
 
 	/**********************************************************************************************
-		fields validations for SEARCH (campos opcionales, se permiten valores parciales)
+		fields validations for SEARCH (campos opcionales, valores parciales)
 	***********************************************************************************************/
 
 	SEARCH_id_funcionalidad_validation(){
-		if (!(this.max_size('id_funcionalidad',11))){
+		if (!(this.validations.max_size('id_funcionalidad',11))){
 			return this.error_campo('id_funcionalidad','id_funcionalidad_max_size_ko');
 		}
-		if (!(this.format('id_funcionalidad','^[0-9]*$'))){
+		if (!(this.validations.format('id_funcionalidad','^[0-9]*$'))){
 			return this.error_campo('id_funcionalidad','id_funcionalidad_format_ko');
 		}
 		return this.exito_campo('id_funcionalidad');
 	}
 
 	SEARCH_nombre_funcionalidad_validation(){
-		if (!(this.max_size('nombre_funcionalidad',48))){
+		if (!(this.validations.max_size('nombre_funcionalidad',48))){
 			return this.error_campo('nombre_funcionalidad','nombre_funcionalidad_max_size_ko');
 		}
-		if (!(this.format('nombre_funcionalidad','^[A-Za-z\u00F1\u00D1]*$'))){
+		if (!(this.validations.format('nombre_funcionalidad','^[A-Za-z\u00F1\u00D1]*$'))){
 			return this.error_campo('nombre_funcionalidad','nombre_funcionalidad_format_ko');
 		}
 		return this.exito_campo('nombre_funcionalidad');
 	}
 
 	SEARCH_descrip_funcionalidad_validation(){
-		if (!(this.max_size('descrip_funcionalidad',200))){
+		if (!(this.validations.max_size('descrip_funcionalidad',200))){
 			return this.error_campo('descrip_funcionalidad','descrip_funcionalidad_max_size_ko');
 		}
-		if (!(this.format('descrip_funcionalidad','^[A-Za-z\u00F1\u00D1 .,;:!?\u00A1\u00BF()"\'-]*$'))){
+		if (!(this.validations.format('descrip_funcionalidad','^[A-Za-z\u00F1\u00D1 .,;:!?\u00A1\u00BF()"\'-]*$'))){
 			return this.error_campo('descrip_funcionalidad','descrip_funcionalidad_format_ko');
 		}
 		return this.exito_campo('descrip_funcionalidad');
@@ -192,11 +176,11 @@ class funcionalidad extends Validations{
 	***********************************************************************************************/
 
 	/**
-	 * ejecuta la validacion de la accion para todos los campos
+	 * ejecuta la validacion de la accion para los campos indicados
 	 * @param {string} accion ADD / EDIT / SEARCH
+	 * @param {Array} campos ids de los campos a validar
 	 */
-	submit_accion(accion){
-		var campos = ['id_funcionalidad','nombre_funcionalidad','descrip_funcionalidad'];
+	submit_accion(accion, campos){
 		var set_result = {};
 		var result = true;
 
@@ -215,16 +199,126 @@ class funcionalidad extends Validations{
 		}
 	}
 
+	// id_funcionalidad no se valida en ADD: es autoincremental y no se muestra
 	ADD_submit_funcionalidad(){
-		return this.submit_accion('ADD');
+		return this.submit_accion('ADD', ['nombre_funcionalidad', 'descrip_funcionalidad']);
 	}
 
 	EDIT_submit_funcionalidad(){
-		return this.submit_accion('EDIT');
+		return this.submit_accion('EDIT', ['id_funcionalidad', 'nombre_funcionalidad', 'descrip_funcionalidad']);
 	}
 
 	SEARCH_submit_funcionalidad(){
-		return this.submit_accion('SEARCH');
+		return this.submit_accion('SEARCH', ['id_funcionalidad', 'nombre_funcionalidad', 'descrip_funcionalidad']);
+	}
+
+	/**********************************************************************************************
+		formularios por accion
+	***********************************************************************************************/
+
+	/**
+	 * pone el titulo, pinta el formulario vacio y lo hace visible
+	 * @param {string} accion
+	 */
+	preparar_formulario(accion){
+		this.dom.assign_property_value('class_contenido_titulo_form','class','text_contenido_titulo_form_'+this.nombreentidad+'_'+accion);
+		document.getElementById('contenedor_IU_form').innerHTML = this.manual_form_creation();
+		this.dom.show_element('Div_IU_form','block');
+	}
+
+	createForm_ADD(){
+		this.preparar_formulario('ADD');
+
+		this.dom.assign_property_value('form_iu','onsubmit','return entidad.dom.validarsubmit(entidad.ADD_submit_'+this.nombreentidad+'())');
+		this.dom.assign_property_value('form_iu','action','javascript:entidad.ADD();');
+
+		// id_funcionalidad es autoincremental: lo asigna el back, no se muestra en ADD
+		this.dom.hide_element_form('id_funcionalidad');
+
+		this.dom.colocarvalidaciones('form_iu','ADD');
+		this.dom.colocarboton('ADD');
+
+		setLang();
+	}
+
+	/**
+	 * @param {Object} fila datos de la fila a modificar
+	 */
+	createForm_EDIT(fila){
+		this.preparar_formulario('EDIT');
+
+		this.dom.assign_property_value('form_iu','onsubmit','return entidad.dom.validarsubmit(entidad.EDIT_submit_'+this.nombreentidad+'())');
+		this.dom.assign_property_value('form_iu','action','javascript:entidad.EDIT();');
+
+		this.dom.rellenarvaloresform(fila);
+
+		this.dom.colocarvalidaciones('form_iu','EDIT');
+
+		// la clave primaria no se modifica
+		this.dom.assign_property_value('id_funcionalidad','readonly','true');
+
+		this.dom.colocarboton('EDIT');
+
+		setLang();
+	}
+
+	createForm_SEARCH(){
+		this.preparar_formulario('SEARCH');
+
+		this.dom.assign_property_value('form_iu','onsubmit','return entidad.dom.validarsubmit(entidad.SEARCH_submit_'+this.nombreentidad+'())');
+		this.dom.assign_property_value('form_iu','action','javascript:entidad.SEARCH();');
+
+		this.dom.colocarvalidaciones('form_iu','SEARCH');
+		this.dom.colocarboton('SEARCH');
+
+		setLang();
+	}
+
+	/**
+	 * @param {Object} fila datos de la fila a borrar
+	 */
+	createForm_DELETE(fila){
+		this.preparar_formulario('DELETE');
+
+		this.dom.assign_property_value('form_iu','action','javascript:entidad.DELETE();');
+
+		this.dom.rellenarvaloresform(fila);
+
+		this.dom.colocartodosreadonly('form_iu');
+		this.dom.colocarboton('DELETE');
+
+		setLang();
+	}
+
+	/**
+	 * @param {Object} fila datos de la fila a mostrar
+	 */
+	createForm_SHOWCURRENT(fila){
+		this.preparar_formulario('SHOWCURRENT');
+
+		this.dom.rellenarvaloresform(fila);
+
+		this.dom.colocartodosreadonly('form_iu');
+		// SHOWCURRENT no tiene boton de submit
+
+		setLang();
+	}
+
+	/**
+	 * metodo pedido en el enunciado. Esta entidad no transforma ninguna columna (mostrarespecial vacio)
+	 * @param {string} atributo nombre del atributo
+	 * @param {any} valorentrada valor original
+	 * @returns {any} el mismo valor
+	 */
+	mostrarcambioatributo(atributo, valorentrada){
+		return valorentrada;
+	}
+
+	/**
+	 * nombre con el que lo invoca crearTablaDatos de AbstractEntidad (no modificable)
+	 */
+	cambiarmostrarespecial(columna, valor){
+		return this.mostrarcambioatributo(columna, valor);
 	}
 
 }

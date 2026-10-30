@@ -1,50 +1,50 @@
 let accion_def_tests = [
     /* ==================== ID_ACCION ==================== */
 
-    Array('accion', 'id_accion', 'input', 1, 'cumple tamaño minimo', 'min_size', 'ADD', 'id_accion_min_size_ko', 'El id de accion es demasiado corto. Introduzca al menos 1 numero'),
-    Array('accion', 'id_accion', 'input', 2, 'cumple tamaño maximo', 'max_size', 'ADD', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('accion', 'id_accion', 'input', 1, 'cumple tama\u00F1o minimo', 'min_size', 'ADD', 'id_accion_min_size_ko', 'El id de accion es demasiado corto. Introduzca al menos 1 numero'),
+    Array('accion', 'id_accion', 'input', 2, 'cumple tama\u00F1o maximo', 'max_size', 'ADD', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
     Array('accion', 'id_accion', 'input', 3, 'cumple formato', 'format', 'ADD', 'id_accion_format_ko', 'El id de accion tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
     Array('accion', 'id_accion', 'input', 4, 'valor correcto', 'valid', 'ADD', true, 'El id de accion es correcto.'),
 
-    Array('accion', 'id_accion', 'input', 5, 'cumple tamaño minimo', 'min_size', 'EDIT', 'id_accion_min_size_ko', 'El id de accion es demasiado corto. Introduzca al menos 1 numero'),
-    Array('accion', 'id_accion', 'input', 6, 'cumple tamaño maximo', 'max_size', 'EDIT', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('accion', 'id_accion', 'input', 5, 'cumple tama\u00F1o minimo', 'min_size', 'EDIT', 'id_accion_min_size_ko', 'El id de accion es demasiado corto. Introduzca al menos 1 numero'),
+    Array('accion', 'id_accion', 'input', 6, 'cumple tama\u00F1o maximo', 'max_size', 'EDIT', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
     Array('accion', 'id_accion', 'input', 7, 'cumple formato', 'format', 'EDIT', 'id_accion_format_ko', 'El id de accion tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
     Array('accion', 'id_accion', 'input', 8, 'valor correcto', 'valid', 'EDIT', true, 'El id de accion es correcto.'),
 
-    Array('accion', 'id_accion', 'input', 9, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
+    Array('accion', 'id_accion', 'input', 9, 'cumple tama\u00F1o maximo', 'max_size', 'SEARCH', 'id_accion_max_size_ko', 'El id de accion es demasiado largo. Introduzca hasta un maximo de 11 numeros'),
     Array('accion', 'id_accion', 'input', 10, 'cumple formato', 'format', 'SEARCH', 'id_accion_format_ko', 'El id de accion tiene un formato incorrecto. Introduzca el id correctamente con formato numerico'),
     Array('accion', 'id_accion', 'input', 11, 'valor correcto', 'valid', 'SEARCH', true, 'El id de accion es correcto.'),
 
     /* ==================== NOMBRE_ACCION ==================== */
 
-    Array('accion', 'nombre_accion', 'input', 12, 'cumple tamaño minimo', 'min_size', 'ADD', 'nombre_accion_min_size_ko', 'El nombre de accion es demasiado corto. Introduzca al menos 5 caracteres'),
-    Array('accion', 'nombre_accion', 'input', 13, 'cumple tamaño maximo', 'max_size', 'ADD', 'nombre_accion_max_size_ko', 'El nombre de accion es demasiado largo. Introduzca hasta un maximo de 48 caracteres'),
-    Array('accion', 'nombre_accion', 'input', 14, 'cumple formato', 'format', 'ADD', 'nombre_accion_format_ko', 'El nombre de accion tiene un formato incorrecto. Introduzca el nombre correctamente permitiendo ñ'),
+    Array('accion', 'nombre_accion', 'input', 12, 'cumple tama\u00F1o minimo', 'min_size', 'ADD', 'nombre_accion_min_size_ko', 'El nombre de accion es demasiado corto. Introduzca al menos 5 caracteres'),
+    Array('accion', 'nombre_accion', 'input', 13, 'cumple tama\u00F1o maximo', 'max_size', 'ADD', 'nombre_accion_max_size_ko', 'El nombre de accion es demasiado largo. Introduzca hasta un maximo de 48 caracteres'),
+    Array('accion', 'nombre_accion', 'input', 14, 'cumple formato', 'format', 'ADD', 'nombre_accion_format_ko', 'El nombre de accion tiene un formato incorrecto. Introduzca el nombre correctamente permitiendo \u00F1'),
     Array('accion', 'nombre_accion', 'input', 15, 'valor correcto', 'valid', 'ADD', true, 'El nombre de accion es correcto.'),
 
-    Array('accion', 'nombre_accion', 'input', 16, 'cumple tamaño minimo', 'min_size', 'EDIT', 'nombre_accion_min_size_ko', 'El nombre de accion es demasiado corto. Introduzca al menos 5 caracteres'),
-    Array('accion', 'nombre_accion', 'input', 17, 'cumple tamaño maximo', 'max_size', 'EDIT', 'nombre_accion_max_size_ko', 'El nombre de accion es demasiado largo. Introduzca hasta un maximo de 48 caracteres'),
-    Array('accion', 'nombre_accion', 'input', 18, 'cumple formato', 'format', 'EDIT', 'nombre_accion_format_ko', 'El nombre de accion tiene un formato incorrecto. Introduzca el nombre correctamente permitiendo ñ'),
+    Array('accion', 'nombre_accion', 'input', 16, 'cumple tama\u00F1o minimo', 'min_size', 'EDIT', 'nombre_accion_min_size_ko', 'El nombre de accion es demasiado corto. Introduzca al menos 5 caracteres'),
+    Array('accion', 'nombre_accion', 'input', 17, 'cumple tama\u00F1o maximo', 'max_size', 'EDIT', 'nombre_accion_max_size_ko', 'El nombre de accion es demasiado largo. Introduzca hasta un maximo de 48 caracteres'),
+    Array('accion', 'nombre_accion', 'input', 18, 'cumple formato', 'format', 'EDIT', 'nombre_accion_format_ko', 'El nombre de accion tiene un formato incorrecto. Introduzca el nombre correctamente permitiendo \u00F1'),
     Array('accion', 'nombre_accion', 'input', 19, 'valor correcto', 'valid', 'EDIT', true, 'El nombre de accion es correcto.'),
 
-    Array('accion', 'nombre_accion', 'input', 20, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'nombre_accion_max_size_ko', 'El termino de busqueda es demasiado largo. Introduzca hasta un maximo de 48 caracteres'),
-    Array('accion', 'nombre_accion', 'input', 21, 'cumple formato', 'format', 'SEARCH', 'nombre_accion_format_ko', 'El termino de busqueda contiene caracteres no permitidos. Solo se permiten letras y ñ'),
+    Array('accion', 'nombre_accion', 'input', 20, 'cumple tama\u00F1o maximo', 'max_size', 'SEARCH', 'nombre_accion_max_size_ko', 'El termino de busqueda es demasiado largo. Introduzca hasta un maximo de 48 caracteres'),
+    Array('accion', 'nombre_accion', 'input', 21, 'cumple formato', 'format', 'SEARCH', 'nombre_accion_format_ko', 'El termino de busqueda contiene caracteres no permitidos. Solo se permiten letras y \u00F1'),
     Array('accion', 'nombre_accion', 'input', 22, 'valor correcto', 'valid', 'SEARCH', true, 'El termino de busqueda es correcto.'),
 
     /* ==================== DESCRIP_ACCION ==================== */
 
-    Array('accion', 'descrip_accion', 'textarea', 23, 'cumple tamaño minimo', 'min_size', 'ADD', 'descrip_accion_min_size_ko', 'La descripcion de accion es demasiado corta. Introduzca al menos 5 caracteres'),
-    Array('accion', 'descrip_accion', 'textarea', 24, 'cumple tamaño maximo', 'max_size', 'ADD', 'descrip_accion_max_size_ko', 'La descripcion de accion es demasiado larga. Introduzca hasta un maximo de 200 caracteres'),
-    Array('accion', 'descrip_accion', 'textarea', 25, 'cumple formato', 'format', 'ADD', 'descrip_accion_format_ko', 'La descripcion de accion tiene un formato incorrecto. Introduzca texto alfabetico permitiendo ñ, espacios y signos de puntuacion'),
+    Array('accion', 'descrip_accion', 'textarea', 23, 'cumple tama\u00F1o minimo', 'min_size', 'ADD', 'descrip_accion_min_size_ko', 'La descripcion de accion es demasiado corta. Introduzca al menos 5 caracteres'),
+    Array('accion', 'descrip_accion', 'textarea', 24, 'cumple tama\u00F1o maximo', 'max_size', 'ADD', 'descrip_accion_max_size_ko', 'La descripcion de accion es demasiado larga. Introduzca hasta un maximo de 200 caracteres'),
+    Array('accion', 'descrip_accion', 'textarea', 25, 'cumple formato', 'format', 'ADD', 'descrip_accion_format_ko', 'La descripcion de accion tiene un formato incorrecto. Introduzca texto alfabetico permitiendo \u00F1, espacios y signos de puntuacion'),
     Array('accion', 'descrip_accion', 'textarea', 26, 'valor correcto', 'valid', 'ADD', true, 'La descripcion de accion es correcta.'),
 
-    Array('accion', 'descrip_accion', 'textarea', 27, 'cumple tamaño minimo', 'min_size', 'EDIT', 'descrip_accion_min_size_ko', 'La descripcion de accion es demasiado corta. Introduzca al menos 5 caracteres'),
-    Array('accion', 'descrip_accion', 'textarea', 28, 'cumple tamaño maximo', 'max_size', 'EDIT', 'descrip_accion_max_size_ko', 'La descripcion de accion es demasiado larga. Introduzca hasta un maximo de 200 caracteres'),
-    Array('accion', 'descrip_accion', 'textarea', 29, 'cumple formato', 'format', 'EDIT', 'descrip_accion_format_ko', 'La descripcion de accion tiene un formato incorrecto. Introduzca texto alfabetico permitiendo ñ, espacios y signos de puntuacion'),
+    Array('accion', 'descrip_accion', 'textarea', 27, 'cumple tama\u00F1o minimo', 'min_size', 'EDIT', 'descrip_accion_min_size_ko', 'La descripcion de accion es demasiado corta. Introduzca al menos 5 caracteres'),
+    Array('accion', 'descrip_accion', 'textarea', 28, 'cumple tama\u00F1o maximo', 'max_size', 'EDIT', 'descrip_accion_max_size_ko', 'La descripcion de accion es demasiado larga. Introduzca hasta un maximo de 200 caracteres'),
+    Array('accion', 'descrip_accion', 'textarea', 29, 'cumple formato', 'format', 'EDIT', 'descrip_accion_format_ko', 'La descripcion de accion tiene un formato incorrecto. Introduzca texto alfabetico permitiendo \u00F1, espacios y signos de puntuacion'),
     Array('accion', 'descrip_accion', 'textarea', 30, 'valor correcto', 'valid', 'EDIT', true, 'La descripcion de accion es correcta.'),
 
-    Array('accion', 'descrip_accion', 'textarea', 31, 'cumple tamaño maximo', 'max_size', 'SEARCH', 'descrip_accion_max_size_ko', 'El termino de busqueda es demasiado largo. Introduzca hasta un maximo de 200 caracteres'),
-    Array('accion', 'descrip_accion', 'textarea', 32, 'cumple formato', 'format', 'SEARCH', 'descrip_accion_format_ko', 'El termino de busqueda contiene caracteres no permitidos. Solo se permiten letras, ñ, espacios y signos de puntuacion'),
+    Array('accion', 'descrip_accion', 'textarea', 31, 'cumple tama\u00F1o maximo', 'max_size', 'SEARCH', 'descrip_accion_max_size_ko', 'El termino de busqueda es demasiado largo. Introduzca hasta un maximo de 200 caracteres'),
+    Array('accion', 'descrip_accion', 'textarea', 32, 'cumple formato', 'format', 'SEARCH', 'descrip_accion_format_ko', 'El termino de busqueda contiene caracteres no permitidos. Solo se permiten letras, \u00F1, espacios y signos de puntuacion'),
     Array('accion', 'descrip_accion', 'textarea', 33, 'valor correcto', 'valid', 'SEARCH', true, 'El termino de busqueda es correcto.')
 ];
 
