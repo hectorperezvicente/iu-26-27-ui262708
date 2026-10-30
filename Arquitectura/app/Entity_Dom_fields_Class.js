@@ -1,18 +1,20 @@
 /**
  * clase para refactorizar los metodos de dom_fields que se consideren necesarios sin modificar su definicion y para inclusion de nuevos metodos
  *
- * NUEVO: crearOpcionesSelect (rellena los select de los atributos FK)
+ * NUEVOS:
+ *  - crearOpcionesSelect: rellena un select con opciones ya conocidas (atributos FK)
+ *  - cargar_select_fk: pide al back las tuplas de una entidad y las añade como opciones de un select (FK)
+ *  - bloquear_select: deja en el select solo la opcion seleccionada
  *
  * REFACTORIZADOS:
- *  - crearElementoHtml: anade el tag 'select' (claves ajenas), con una unica opcion seleccionada con el
- *    valor de la prueba para que los tests puedan validar su valor. Ademas el original no rellena
- *    textarea (lo crea vacio) y si la prueba de un input no trae valor no crea el elemento.
+ *  - crearElementoHtml: el original no rellena textarea ni crea select (los crea vacios) y si la prueba
+ *    de un input no trae valor no crea el elemento. Aqui se crean input, textarea, select (con una unica
+ *    opcion seleccionada con el valor de la prueba), file, submit y el resto de tags.
  *  - mostrar_error_campo / mostrar_exito_campo: el original acumula las clases de error en el <a>,
  *    y setLang podia acabar pintando el mensaje de un error anterior.
- *  - abrirModalError: el original hace classList.add = codigo (asignacion, no llamada), con lo que el
- *    codigo de error nunca llegaba a ponerse como clase y setLang() no podia traducirlo.
- *    Ahora ademas da un mensaje generico traducido si el back devuelve un codigo que no esta
- *    en los ficheros de idioma.
+ *  - abrirModalError: el original hace classList.add = codigo (asignacion, no llamada),
+ *    asi que el mensaje de error de accion nunca se traducia. Ahora ademas da un mensaje
+ *    generico traducido si el back devuelve un codigo que no esta en los ficheros de idioma.
  *  - colocarboton: pone clase de traduccion al icono del submit (alt y title traducidos).
  */
 class entity_dom_fields extends dom_fields{
@@ -49,7 +51,6 @@ class entity_dom_fields extends dom_fields{
 				this.colocarelemento(element, contenedor);
 				break;
 			case 'select':
-				// una unica opcion seleccionada con el valor de la prueba
 				element = document.createElement('select');
 				element.id = nombrecampo;
 				element.name = nombrecampo;
@@ -140,7 +141,7 @@ class entity_dom_fields extends dom_fields{
 	}
 
 	/**
-	 * metodo nuevo: rellena un select con opciones (para atributos FK)
+	 * metodo nuevo: rellena un select con opciones ya conocidas (para atributos FK)
 	 * @param {string} idselect id del select
 	 * @param {Array} opciones [{valor, texto}]
 	 * @param {string} clasevacia si se indica, primera opcion con valor '' y esa clase (texto traducido por setLang)
@@ -160,6 +161,46 @@ class entity_dom_fields extends dom_fields{
 			elemento.value = opcion.valor;
 			elemento.innerHTML = opcion.texto;
 			select.append(elemento);
+		}
+	}
+
+	/**
+	 * metodo nuevo: pide al back todas las tuplas de una entidad y las añade como opciones a un select (clave ajena).
+	 * value de la opcion = columna id; texto = id + primera columna no objeto distinta del id (el nombre).
+	 * Debe terminar ANTES de rellenarvaloresform, que asigna el value al select.
+	 *
+	 * @param {string} idselect id del select del formulario
+	 * @param {string} controlador entidad del back de la que se piden las tuplas (rol, accion, funcionalidad...)
+	 * @param {string} columnaid nombre de la columna que contiene el id en esa entidad
+	 */
+	async cargar_select_fk(idselect, controlador, columnaid){
+		let respuesta = await new ExternalAccess().peticionBackGeneral('', controlador, 'SEARCH');
+		let select = document.getElementById(idselect);
+
+		if (respuesta['code'] == 'RECORDSET_DATOS'){
+			for (let i=0;i<respuesta['resource'].length;i++){
+				let fila = respuesta['resource'][i];
+				let columnanombre = Object.keys(fila).find(c => (c != columnaid) && (typeof fila[c] != 'object'));
+
+				let option = document.createElement('option');
+				option.value = fila[columnaid];
+				option.textContent = fila[columnaid] + ((columnanombre) ? ' - '+fila[columnanombre] : '');
+				select.append(option);
+			}
+		}
+	}
+
+	/**
+	 * metodo nuevo: deja en el select solo la opcion seleccionada: el usuario no puede cambiarlo
+	 * y el valor sigue viajando en el FormData (un select disabled no se envia)
+	 * @param {string} id id del select
+	 */
+	bloquear_select(id){
+		let select = document.getElementById(id);
+		for (let i=select.options.length-1;i>=0;i--){
+			if (!select.options[i].selected){
+				select.remove(i);
+			}
 		}
 	}
 }

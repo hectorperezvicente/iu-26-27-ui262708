@@ -89,8 +89,6 @@ var textos_EN = {
 	'fechaNacimiento_persona_format_ko': 'Wrong date format. It must be d/m/yyyy or dd/mm/yyyy',
 	'fechaNacimiento_persona_personalized_ko': 'The date does not exist in the calendar',
 	'fechaNacimiento_persona_future_date_ko': 'The date of birth cannot be later than today',
-	// legacy (version anterior, se conserva por compatibilidad)
-	'fechaNacimiento_persona_valid_ko': 'Date is invalid. The date must exist',
 	// direccion_persona
 	'direccion_persona_min_size_ko': 'Address too short. It must have between 10 and 200 characters',
 	'direccion_persona_max_size_ko': 'Address too long. It must have at most 200 characters',
@@ -211,6 +209,32 @@ var textos_EN = {
 	'contrasena_min_size_ko': 'The password is too short. Enter at least 8 characters',
 	'contrasena_max_size_ko': 'The password is too long. Enter at most 45 characters',
 	'contrasena_format_ko': 'Wrong password format. Only letters without \u00F1 or accents are allowed',
+
+	/*************************************************************************
+		ROLACCIONFUNCIONALIDAD (its attributes, labels and errors are in rol, accion and funcionalidad)
+	*************************************************************************/
+	'text_titulo_page_rolaccionfuncionalidad': 'Role, Action and Functionality Management',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_ADD': 'Role-Action-Functionality ADD Form',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_EDIT': 'Role-Action-Functionality EDIT Form',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_DELETE': 'Role-Action-Functionality DELETE Form',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_SHOWCURRENT': 'Role-Action-Functionality SHOWCURRENT Form',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_SEARCH': 'Role-Action-Functionality SEARCH Form',
+
+	/*************************************************************************
+		FUNCIONALIDAD_ACCION (its attributes, labels and errors are in funcionalidad and accion)
+	*************************************************************************/
+	'text_titulo_page_funcionalidad_accion': 'Functionality and Action Management',
+	'text_contenido_titulo_form_funcionalidad_accion_ADD': 'Functionality-Action ADD Form',
+	'text_contenido_titulo_form_funcionalidad_accion_EDIT': 'Functionality-Action EDIT Form',
+	'text_contenido_titulo_form_funcionalidad_accion_DELETE': 'Functionality-Action DELETE Form',
+	'text_contenido_titulo_form_funcionalidad_accion_SHOWCURRENT': 'Functionality-Action SHOWCURRENT Form',
+	'text_contenido_titulo_form_funcionalidad_accion_SEARCH': 'Functionality-Action SEARCH Form',
+
+	/*************************************************************************
+		OLD CODES (from the previous version): delete if no entity uses them
+	*************************************************************************/
+	'dni_personalized_validate_dni_ko': 'The ID letter does not match the number',
+	'fechaNacimiento_persona_valid_ko': 'Date is invalid. The date must exist',
 
 	/*************************************************************************
 		ACTION ERRORS (returned by the back end)

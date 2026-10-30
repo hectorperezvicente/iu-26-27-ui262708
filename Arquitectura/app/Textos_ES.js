@@ -89,9 +89,6 @@ var textos_ES = {
 	'fechaNacimiento_persona_format_ko': 'Formato de fecha incorrecto. Debe ser d/m/aaaa o dd/mm/aaaa',
 	'fechaNacimiento_persona_personalized_ko': 'La fecha no existe en el calendario',
 	'fechaNacimiento_persona_future_date_ko': 'La fecha de nacimiento no puede ser posterior a la fecha actual',
-	// legacy (version anterior, se conserva por compatibilidad)
-	'fechaNacimiento_persona_valid_ko': 'Fecha no v\u00E1lida. La fecha debe existir',
-	'dni_personalized_validate_dni_ko': 'La letra del DNI no corresponde con el n\u00FAmero', // codigo antiguo: borrar si ninguna entidad lo usa
 	// direccion_persona
 	'direccion_persona_min_size_ko': 'Direcci\u00F3n demasiado corta. Debe tener entre 10 y 200 caracteres',
 	'direccion_persona_max_size_ko': 'Direcci\u00F3n demasiado larga. Debe tener como m\u00E1ximo 200 caracteres',
@@ -212,6 +209,41 @@ var textos_ES = {
 	'contrasena_min_size_ko': 'La contrase\u00F1a es demasiado corta. Introduzca al menos 8 caracteres',
 	'contrasena_max_size_ko': 'La contrase\u00F1a es demasiado larga. Introduzca hasta un m\u00E1ximo de 45 caracteres',
 	'contrasena_format_ko': 'La contrase\u00F1a tiene un formato incorrecto. Introduzca solo letras, sin \u00F1 ni acentos',
+
+	/*************************************************************************
+		ROLACCIONFUNCIONALIDAD (sus atributos, labels y errores estan en rol, accion y funcionalidad)
+	*************************************************************************/
+	'text_titulo_page_rolaccionfuncionalidad': 'Gesti\u00F3n de Roles, Acciones y Funcionalidades',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_ADD': 'Formulario Alta Rol-Acci\u00F3n-Funcionalidad',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_EDIT': 'Formulario Modificaci\u00F3n Rol-Acci\u00F3n-Funcionalidad',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_DELETE': 'Formulario Eliminaci\u00F3n Rol-Acci\u00F3n-Funcionalidad',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_SHOWCURRENT': 'Formulario Detalle Rol-Acci\u00F3n-Funcionalidad',
+	'text_contenido_titulo_form_rolaccionfuncionalidad_SEARCH': 'Formulario B\u00FAsqueda Rol-Acci\u00F3n-Funcionalidad',
+
+	/*************************************************************************
+		FUNCIONALIDAD_ACCION (sus atributos, labels y errores estan en funcionalidad y accion)
+	*************************************************************************/
+	'text_titulo_page_funcionalidad_accion': 'Gesti\u00F3n de Funcionalidades y Acciones',
+	'text_contenido_titulo_form_funcionalidad_accion_ADD': 'Formulario Alta Funcionalidad-Acci\u00F3n',
+	'text_contenido_titulo_form_funcionalidad_accion_EDIT': 'Formulario Modificaci\u00F3n Funcionalidad-Acci\u00F3n',
+	'text_contenido_titulo_form_funcionalidad_accion_DELETE': 'Formulario Eliminaci\u00F3n Funcionalidad-Acci\u00F3n',
+	'text_contenido_titulo_form_funcionalidad_accion_SHOWCURRENT': 'Formulario Detalle Funcionalidad-Acci\u00F3n',
+	'text_contenido_titulo_form_funcionalidad_accion_SEARCH': 'Formulario B\u00FAsqueda Funcionalidad-Acci\u00F3n',
+
+	/*************************************************************************
+		CODIGOS ANTIGUOS (de la version anterior): borrar si ninguna entidad los usa
+	*************************************************************************/
+	'dni_personalized_validate_dni_ko': 'La letra del DNI no corresponde con el n\u00FAmero',
+	'fechaNacimiento_persona_valid_ko': 'Fecha no v\u00E1lida. La fecha debe existir',
+
+	// textos de test (comentados en la version anterior)
+	/*'res_estructura_tests':'Tabla verificacion estructura de test',
+	'resultadodef':'formato correcto estructura definicion tests',
+	'res_estructura_pruebas':'Tabla verificacion estructura de pruebas',
+	'resultadoprueba':'formato correcto estructura pruebas',
+	'res_pruebas':'Tabla ejecuci\u00F3n de pruebas',
+	'resultadotest':'Resultado ejecucion pruebas',
+	*/
 
 	/*************************************************************************
 		ERRORES DE ACCION (devueltos por el back)
